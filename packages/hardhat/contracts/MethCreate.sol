@@ -47,23 +47,37 @@ contract MethCreate is IMethCreate, ERC721, ERC721URIStorage {
     }
 
     function setSellable(uint tokenId, bool sellable) public onlyTokenOwner(tokenId) {
-        TokenInfo storage TokenInfo = tokensInfo[tokenId];
-        TokenInfo.sellable = sellable;
+        TokenInfo storage tokenInfo = tokensInfo[tokenId];
+        tokenInfo.sellable = sellable;
+
+        emit TokenUpdated(tokenId, tokenInfo.price, sellable);
     }
 
     function setPrice(uint tokenId, uint price) external onlyTokenOwner(tokenId) {
-        TokenInfo storage TokenInfo = tokensInfo[tokenId];
-        TokenInfo.price = price;
+        TokenInfo storage tokenInfo = tokensInfo[tokenId];
+        tokenInfo.price = price;
+
+        emit TokenUpdated(tokenId, price, tokenInfo.sellable);
     }
 
-    function buyTokenWithEth(uint tokenId, bool sellable) external payable onlySellableToken(tokenId) {
+    function setPrice(uint tokenId, uint price, uint sellable) external onlyTokenOwner(tokenId) {
+        TokenInfo storage tokenInfo = tokensInfo[tokenId];
+        tokenInfo.price = price;
+        tokenInfo.sellable = sellable;
+
+        emit TokenUpdated(tokenId, price, tokenInfo.sellable);
+    }
+
+    function buyTokenWithEth(uint tokenId, uint newPrice, bool sellable) external payable onlySellableToken(tokenId) {
         if (msg.value <= tokensInfo[tokenId].price) revert InsufficientPayment();
 
         address seller = ownerOf(tokenId);
         safeTransferFrom(seller, msg.sender, tokenId);
 
-        setSellable(tokenId, sellable);
+        setTokenInfo(tokenId, newPrice, sellable);
 
         payable(seller).sendValue(msg.value);
+
+        emit TokenSold(seller, msg.sender, tokenId, address(0), block.timestamp);
     }
 }
