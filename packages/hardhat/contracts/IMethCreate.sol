@@ -10,4 +10,18 @@ interface IMethCreate {
     error NotTokenOwner();
     error NotSellable();
     error InsufficientPayment();
+
+    event TokenUpdated(
+        uint indexed tokenId,
+        uint indexec price,
+        bool indexed sellable
+    );
+
+    event TokenSold(
+        address indexed seller,
+        address indexed buyer,
+        uint indexed tokenId,
+        address paymentToken,
+        uint time
+    );
 }
