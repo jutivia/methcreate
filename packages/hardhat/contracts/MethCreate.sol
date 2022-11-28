@@ -4,21 +4,15 @@ pragma solidity 0.8.17;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Address.sol";
-import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
 import "./IMethCreate.sol";
-import { PriceFeed } from "./PriceFeed.sol";
 
-contract MethCreate is IMethCreate, Ownable, ERC721, ERC721URIStorage {
+contract MethCreate is IMethCreate, ERC721, ERC721URIStorage {
     using Counters for Counters.Counter;
     using Address for address payable;
-    using EnumerableSet for EnumerableSet.AddressSet;
 
     Counters.Counter private _tokenIdCounter;
     mapping(uint => TokenInfo) tokensInfo;
-    mapping(address => EnumerableSet.AddressSet) sellersChoicePaymentTokens;
-    mapping(address => address) priceFeeds;
 
     modifier onlyTokenOwner(uint tokenId) {
         if (ownerOf(tokenId) != msg.sender) revert NotTokenOwner();
@@ -48,68 +42,28 @@ contract MethCreate is IMethCreate, Ownable, ERC721, ERC721URIStorage {
         super._burn(tokenId);
     }
 
+    function tokenURI(uint256 tokenId) public view override(ERC721, ERC721URIStorage) returns (string memory) {
+        return super.tokenURI(tokenId);
+    }
+
+    function setSellable(uint tokenId, bool sellable) public onlyTokenOwner(tokenId) {
+        TokenInfo storage TokenInfo = tokensInfo[tokenId];
+        TokenInfo.sellable = sellable;
+    }
+
     function setPrice(uint tokenId, uint price) external onlyTokenOwner(tokenId) {
-        TokenInfo storage tokenInfo = tokensInfo[tokenId];
-        tokenInfo.price = price;
-
-        emit TokenUpdated(tokenId, price, tokenInfo.sellable);
+        TokenInfo storage TokenInfo = tokensInfo[tokenId];
+        TokenInfo.price = price;
     }
 
-    function setSellable(uint tokenId, bool sellable) external onlyTokenOwner(tokenId) {
-        TokenInfo storage tokenInfo = tokensInfo[tokenId];
-        tokenInfo.sellable = sellable;
-
-        emit TokenUpdated(tokenId, tokenInfo.price, sellable);
-    }
-
-    function buyTokenWithEth(uint tokenId, uint newPrice, bool sellable) external payable onlySellableToken(tokenId) {
+    function buyTokenWithEth(uint tokenId, bool sellable) external payable onlySellableToken(tokenId) {
         if (msg.value <= tokensInfo[tokenId].price) revert InsufficientPayment();
 
         address seller = ownerOf(tokenId);
         safeTransferFrom(seller, msg.sender, tokenId);
 
-        setTokenInfo(tokenId, newPrice, sellable);
+        setSellable(tokenId, sellable);
 
         payable(seller).sendValue(msg.value);
-
-        emit TokenSold(seller, msg.sender, tokenId, address(0), block.timestamp);
-    }
-
-    function addToMyPaymentTokens(address[] calldata tokens) external {
-        address[] memory actualTokensAdded;
-        for (uint i = 0; i < tokens.length; i++) {
-            if (PriceFeed.hasPriceFeed(tokens[i])) {
-                sellersChoicePaymentTokens[msg.sender].add(tokens[i]);
-                actualTokensAdded[i] = tokens[i];
-            }
-        }
-
-        emit SellerAddedPaymentTokens(msg.sender, actualTokensAdded);
-    }
-
-    function removeFromMyPaymentTokens(address[] calldata tokens) external {
-        for (uint i = 0; i < tokens.length; i++) {
-            sellersChoicePaymentTokens[msg.sender].remove(tokens[i]);
-        }
-
-        emit SellerRemovedPaymentTokens(msg.sender, tokens);
-    }
-
-    function getSellersPaymentToken(address seller) external view returns (address[] memory tokens) {
-        return sellersChoicePaymentTokens[seller].values();
-    }
-
-    function setTokenInfo(uint tokenId, uint price, bool sellable) public onlyTokenOwner(tokenId) {
-        TokenInfo storage tokenInfo = tokensInfo[tokenId];
-        tokenInfo.price = price;
-        tokenInfo.sellable = sellable;
-
-        emit TokenUpdated(tokenId, price, tokenInfo.sellable);
-    }
-
-    function tokenURI(
-        uint256 tokenId
-    ) public view override(ERC721, ERC721URIStorage, IMethCreate) returns (string memory) {
-        return super.tokenURI(tokenId);
     }
 }
