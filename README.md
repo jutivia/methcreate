@@ -253,9 +253,7 @@ $ npx hardhat test --network localhost
 
 This Project was created by the members of Teammeta during the polygon bootcamp.
 
-<p align="center" width="100%">
-  <img src="https://drive.google.com/uc?export=view&id=10Ibk5J441crY7Dh4DVPVM5bwx0JenaRL" alt="teamresilient"/>
-</p>
+
 
 #
 > ## Contributing to the project
