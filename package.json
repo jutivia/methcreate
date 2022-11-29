@@ -2,20 +2,14 @@
   "name": "@methcreate/monorepo",
   "version": "1.0.0",
   "private": true,
-<<<<<<< HEAD
-=======
   "scripts": {
   },
->>>>>>> 950c785 (chore: use monorepo structure)
   "workspaces": {
     "packages": [
       "packages/*"
     ]
-<<<<<<< HEAD
-=======
   },
   "dependencies": {},
   "devDependencies": {
->>>>>>> 950c785 (chore: use monorepo structure)
   }
 }
