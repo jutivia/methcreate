@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../../images/logo.svg";
+
 import Link from "next/link";
 import {
 	FaFacebookF,
@@ -8,7 +8,8 @@ import {
 	FaPinterestP,
 	FaInstagram,
 } from "react-icons/fa";
-
+import {Logo} from "../../images";
+import Image from 'next/image'
 const Footer = () => {
 	return (
 		<div className='bg-dark-blue'>
@@ -19,7 +20,7 @@ const Footer = () => {
 						<div className='logo w-full'>
 							<Link href='/' passHref>
 								<a>
-									<Logo />
+								<Image src={Logo} alt='logo' width="124px" height="21px" />
 								</a>
 							</Link>
 						</div>
