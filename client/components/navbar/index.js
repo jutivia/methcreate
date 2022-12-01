@@ -1,9 +1,10 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import Logo from "../../images/logo.svg";
+import {Logo} from "../../images";
 import Closebtn from "../../images/icon-close.svg";
 import Barbtn from "../../images/icon-hamburger.svg";
 import { ConnectButton } from '@rainbow-me/rainbowkit';
+import Image from 'next/image'
 const Navbar = () => {
 	const [isOpenNav, setIsOpenNav] = useState(false);
 
@@ -14,7 +15,7 @@ const Navbar = () => {
 					<div className='logo self-center'>
 						<Link href='/' passHref>
 							<a>
-								<Logo />
+								<Image src={Logo} alt='logo' width="124px" height="21px" />
 							
 							</a>
 						</Link>
@@ -64,7 +65,7 @@ const Navbar = () => {
 						)}
 					</div>
 					<div className='nav-button self-center hidden lg:block'>
-					<ConnectButton />
+						  <ConnectButton />
 					</div>
 				</div>
 			</div>
