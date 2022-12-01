@@ -27,33 +27,30 @@ const Navbar = () => {
 						<ul className='list-none flex gap-8 justify-center items-center'>
 							<li className='nav-link-item group'>
 								<Link href='/' passHref>
-									<a className='nav-link-item-link'>Home</a>
+									<a className='nav-link-item-link'>Studio</a>
 								</Link>
 							</li>
 							<li className='nav-link-item group'>
 								<Link href='/#about' passHref>
-									<a className='nav-link-item-link'>About</a>
+									<a className='nav-link-item-link'>Build</a>
 								</Link>
 							</li>
 							<li className='nav-link-item group'>
 								<Link href='/#contact' passHref>
-									<a className='nav-link-item-link'>Contact</a>
+									<a className='nav-link-item-link'>Community</a>
 								</Link>
 							</li>
 							<li className='nav-link-item group'>
 								<Link href='/#blog' passHref>
-									<a className='nav-link-item-link'>Blog</a>
+									<a className='nav-link-item-link'>Roadmap</a>
 								</Link>
 							</li>
-							<li className='nav-link-item group'>
-								<Link href='/#careers' passHref>
-									<a className='nav-link-item-link'>Careers</a>
-								</Link>
-							</li>
+							
 						</ul>
 					</div>
+					
 					{/* hamburger button  */}
-					<div className='block sm:hidden'>
+					<div className='block hidden'>
 						{isOpenNav ? (
 							<div>
 								<Closebtn onClick={() => setIsOpenNav(false)} />
@@ -64,7 +61,7 @@ const Navbar = () => {
 							</div>
 						)}
 					</div>
-					<div className='nav-button self-center hidden lg:block'>
+					<div className='mt-3 space-y-2  md:hidden'>
 						  <ConnectButton />
 					</div>
 				</div>
