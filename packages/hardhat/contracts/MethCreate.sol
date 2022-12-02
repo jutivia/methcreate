@@ -92,9 +92,11 @@ contract MethCreate is IMethCreate, Ownable, ERC721, ERC721URIStorage {
         if (!PaymentChecker.isPaymentSufficient(payment, paymentToken, tokenPrice, priceFeed))
             revert InsufficientPayment();
 
+        this.safeTransferFrom(seller, msg.sender, nftTokenId);
+
         setTokenInfo(nftTokenId, newPrice, sellable);
 
-        SafeERC20.safeTransfer(IERC20(paymentToken), seller, payment);
+        SafeERC20.safeTransferFrom(IERC20(paymentToken), msg.sender, seller, payment);
 
         emit TokenSold(seller, msg.sender, nftTokenId, address(0), block.timestamp);
     }
