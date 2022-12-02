@@ -1,42 +1,6 @@
 # methcreate content creation dapp
 
-<<<<<<< HEAD
 > ## Table of contents
-- [Overview](#overview)
-- [Project Features](#project-features)
-- [Technologies](#technologies)
-- [Repo Setup](#repo-setup)
-- [Requirements](#requirements)
-- [Setup the Project](#setup-the-project)
-  - [Install Hardhat](#install-hardhat)
-  - [Env Setup](#env-setup)
-  - [Setup Hardhat.config](#setup-hardhatconfig)
-- [Create the SmartContract](#create-the-smartcontract)
-  - [Compile](#compile)
-  - [Deploy](#deploy)
-  - [Verify](#verify)
-- [Setup the Frontend](#setup-the-frontend)
-  - [Install Dependencies](#install-dependencies)
-  - [Start Server](#start-server)
-  - [Build the Frontend](#build-the-frontend)
-- [Testing the Smartcontract](#testing-the-smartcontract)
-  - [Coverage](#coverage)
-  - [Test](#test)
-- [Verified Contract Addresses](#verified-contract-addresses)
-- [Live Link](#live-link)
-- [Contributors](#contributors)
-- [Contributing to the project](#contributing-to-the-project)
-#
-> ## Overview
-<p align="justify">
-An online video sharing, live streaming and social media platform
-</p>
-
-#
-> ## Project Features
-- Like 
-=======
-> ## Table of content
 
 - [Overview](#overview)
 - [Project Features](#project-features)
@@ -76,7 +40,6 @@ An online video sharing, live streaming and social media platform
 > ## Project Features
 
 - Like
->>>>>>> b50166cc48d644a33a14ae27f03a5e663d2a6433
 - Share
 - Subscribe
 - Follow
@@ -87,8 +50,8 @@ An online video sharing, live streaming and social media platform
 - Live message
 - Profile
 - Private content can only be viewed by those that have bought or that have being given permission by the owne
-<<<<<<< HEAD
-=======
+  <<<<<<< HEAD
+  =======
 
 </p>
 
@@ -149,21 +112,25 @@ The steps involved are outlined below:-
 > ### Install Hardhat
 >
 > The first step involves cloning and installing hardhat.
->>>>>>> b50166cc48d644a33a14ae27f03a5e663d2a6433
+>
+> > > > > > > b50166cc48d644a33a14ae27f03a5e663d2a6433
 
 </p>
 
 #
+
 > ## Technologies
-| <b><u>Stack</u></b> | <b><u>Usage</u></b> |
-| :------------------ | :------------------ |
-| **`Solidity`**      | Smart contract      |
-| **`ipfs`**          | database            |
-| **`chainlink`**     | price feed          |
-| **`the graph`**     | query data         |
-| **`Next JS`**      | Frontend            |
+>
+> | <b><u>Stack</u></b> | <b><u>Usage</u></b> |
+> | :------------------ | :------------------ |
+> | **`Solidity`**      | Smart contract      |
+> | **`ipfs`**          | database            |
+> | **`chainlink`**     | price feed          |
+> | **`the graph`**     | query data          |
+> | **`Next JS`**       | Frontend            |
 
 #
+
 > ## Repo Setup
 
 <p align="justify">
@@ -181,24 +148,33 @@ Change directory to the cloned repo and set the original Methcreate repository a
 #
 
 > ## Requirements
+
 #
+
 - Hardhat
 - Alchemy key
 - Metamask key
 - Etherscan.io API Url
 - Node JS
+
 #
+
 > ## Setup the Project
-**`*Note:`**
+>
+> **`*Note:`**
 
 <p align="justify">
 This project was setup on a windows 10 system using the gitbash terminal. Some of the commands used may not work with the VScode terminal, command prompt or powershell.
 </p>
 
 The steps involved are outlined below:-
+
 #
+
 > ### Install Hardhat
-The first step involves cloning and installing hardhat.
+>
+> The first step involves cloning and installing hardhat.
+
 ```shell
 $ cd Methcreate
 
@@ -210,12 +186,14 @@ $ npm install --save-dev "@nomiclabs/hardhat-waffle" "ethereum-waffle" "chai" "@
 
 # If you encounter errors installing the dependencies above, delete the old package-lock.json and run the `npm install --save-dev` command again
 ```
-<<<<<<< HEAD
-> ### Env Setup
- Next create a `.env` file by using the sample.env. Retrieve your information from the relevant sites and input the information where needed in the `.env` file.
 
-`To retrieve your metamask private key.`
-=======
+<<<<<<< HEAD
+
+> ### Env Setup
+>
+> Next create a `.env` file by using the sample.env. Retrieve your information from the relevant sites and input the information where needed in the `.env` file.
+
+# `To retrieve your metamask private key.`
 
 > ### Env Setup
 >
@@ -223,7 +201,8 @@ $ npm install --save-dev "@nomiclabs/hardhat-waffle" "ethereum-waffle" "chai" "@
 
 `To retrieve your metamask private key.`
 
->>>>>>> b50166cc48d644a33a14ae27f03a5e663d2a6433
+> > > > > > > b50166cc48d644a33a14ae27f03a5e663d2a6433
+
 - Open your account details by clicking on the three dots on the metamask extension on your chrome browser
 - Click on export private key
 - Verify your password
@@ -234,13 +213,15 @@ $ npm install --save-dev "@nomiclabs/hardhat-waffle" "ethereum-waffle" "chai" "@
 </p>
 
 #
+
 <<<<<<< HEAD
 `To retrieve your alchemy key.`
 =======
 
 `To retrieve your alchemy key.`
 
->>>>>>> b50166cc48d644a33a14ae27f03a5e663d2a6433
+> > > > > > > b50166cc48d644a33a14ae27f03a5e663d2a6433
+
 - Login to your account on https://www.alchemy.com/
 - Once youre redirected to your [dashboard](https://dashboard.alchemyapi.io/), click on create app.
 - Fill in the relevant details especially the chain and network
@@ -250,19 +231,23 @@ $ npm install --save-dev "@nomiclabs/hardhat-waffle" "ethereum-waffle" "chai" "@
 <<<<<<< HEAD
 
 =======
->>>>>>> b50166cc48d644a33a14ae27f03a5e663d2a6433
+
+> > > > > > > b50166cc48d644a33a14ae27f03a5e663d2a6433
+
 <p align="center" width="100%">
   <img src="https://drive.google.com/uc?export=view&id=1XFtACFN-LWvoDUD1QyJJY9uOc7KNkrL6" alt="alchemy"/>
 </p>
 
 #
+
 <<<<<<< HEAD
 `To retrieve your etherscan key.`
 =======
 
 `To retrieve your etherscan key.`
 
->>>>>>> b50166cc48d644a33a14ae27f03a5e663d2a6433
+> > > > > > > b50166cc48d644a33a14ae27f03a5e663d2a6433
+
 - Login to [etherscan](https://etherscan.io/) and hover over the dropdown arrow for your profile on the navbar.
 - Click on API keys and add to create a new project (optional step).
 - Once the project has been created, click on the copy button to copy the API key.
@@ -273,13 +258,16 @@ $ npm install --save-dev "@nomiclabs/hardhat-waffle" "ethereum-waffle" "chai" "@
 </p>
 
 #
+
 <<<<<<< HEAD
+
 > ### Setup Hardhat.config
 
 =======
 
 > ### Setup Hardhat.config
->>>>>>> b50166cc48d644a33a14ae27f03a5e663d2a6433
+>
+> > > > > > > b50166cc48d644a33a14ae27f03a5e663d2a6433
 
 Below is the setup for the hardhat.config.json
 
@@ -288,26 +276,37 @@ Below is the setup for the hardhat.config.json
 </p>
 
 #
+
 <<<<<<< HEAD
+
 > ## Create the SmartContract
-  - First write the Smartcontract codes within the contracts folder.
-  - The next step involves the compilation, deployment and verification of the contract on the testnet.
+
+- First write the Smartcontract codes within the contracts folder.
+- The next step involves the compilation, deployment and verification of the contract on the testnet.
 
 > ### Compile
+
 - To compile the smartcontract before deployment:
+
 ```
 $ npx hardhat compile
 ```
+
 #
+
 > ### Deploy
+
 - To deploy the smartcontract:
+
 ```
 $ npx hardhat run scripts/deploy.js --network rinkeby
 ```
+
 #
+
 > ### Verify
-- To verify the smartcontract:
-=======
+
+- # To verify the smartcontract:
 
 > ## Create the SmartContract
 
@@ -338,19 +337,15 @@ $ npx hardhat run scripts/deploy.js --network rinkeby
 
 - To verify the smartcontract:
 
->>>>>>> b50166cc48d644a33a14ae27f03a5e663d2a6433
+> > > > > > > b50166cc48d644a33a14ae27f03a5e663d2a6433
+
 ```
 $ npx hardhat verify 0x43f71fbd58e9600924f49a53c6fde787977c2b9d --network mumbai "0x33d57e4712e4c4dc6ff50e3319e1e79d7eabc937"
 ```
 
 > ## Setup the Frontend
-<<<<<<< HEAD
-- First run the frontend on your local server to ensure it's fully functional before building for production.
-#
-> ### Install Dependencies
-- Setup and install dependencies
-his is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-=======
+>
+> <<<<<<< HEAD
 
 - First run the frontend on your local server to ensure it's fully functional before building for production.
 
@@ -360,7 +355,17 @@ his is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-
 
 - Setup and install dependencies
   his is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
->>>>>>> b50166cc48d644a33a14ae27f03a5e663d2a6433
+  =======
+
+- First run the frontend on your local server to ensure it's fully functional before building for production.
+
+#
+
+> ### Install Dependencies
+
+- Setup and install dependencies
+  his is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+  > > > > > > > b50166cc48d644a33a14ae27f03a5e663d2a6433
 
 ## Getting Started
 
@@ -398,24 +403,34 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 > ## Testing the Smartcontract
 
 - Coverage is used to view the percentage of the code required by tests and unittests were implemented to ensure that the code functions as expected
-<<<<<<< HEAD
+  <<<<<<< HEAD
+
 #
+
 > ### Coverage
+
 - Install Solidity Coverage
+
 ```
   $ npm i solidity-coverage
 ```
+
 - Add `require('solidity-coverage')` to hardhat.config.json
 
 - Install Ganache
-``` 
+
+```
   $ npm i install ganache-cli
-``` 
+```
+
 - Run coverage
+
 ```
 $ npx hardhat coverage --network localhost
 ```
+
 #
+
 =======
 
 #
@@ -444,23 +459,14 @@ $ npx hardhat coverage --network localhost
 
 #
 
->>>>>>> b50166cc48d644a33a14ae27f03a5e663d2a6433
+> > > > > > > b50166cc48d644a33a14ae27f03a5e663d2a6433
+>
 > ### Test
 
 - To test the smartcontract, first open a terminal and run the following command:
 
 <<<<<<< HEAD
-``` 
-$ npx hardhat node
-```
-- Leave the previous terminal running and open new terminal. 
-- Run the command below:
-```
-$ npx hardhat test --network localhost
-``` 
-#
 
-=======
 ```
 $ npx hardhat node
 ```
@@ -473,7 +479,23 @@ $ npx hardhat test --network localhost
 ```
 
 #
->>>>>>> b50166cc48d644a33a14ae27f03a5e663d2a6433
+
+=======
+
+```
+$ npx hardhat node
+```
+
+- Leave the previous terminal running and open new terminal.
+- Run the command below:
+
+```
+$ npx hardhat test --network localhost
+```
+
+#
+
+> > > > > > > b50166cc48d644a33a14ae27f03a5e663d2a6433
 
 > ## Contributors
 
@@ -481,12 +503,14 @@ This Project was created by the members of Teammeta during the polygon bootcamp.
 
 <<<<<<< HEAD
 
-
 #
+
 =======
+
 #
 
->>>>>>> b50166cc48d644a33a14ae27f03a5e663d2a6433
+> > > > > > > b50166cc48d644a33a14ae27f03a5e663d2a6433
+>
 > ## Contributing to the project
 
 If you find something worth contributing, please fork the repo, make a pull request and add valid and well-reasoned explanations about your changes or comments.
@@ -500,10 +524,13 @@ Before adding a pull request, please note:
 
 All **`suggestions`** are welcome!
 <<<<<<< HEAD
+
 #
+
 =======
 
 #
 
->>>>>>> b50166cc48d644a33a14ae27f03a5e663d2a6433
+> > > > > > > b50166cc48d644a33a14ae27f03a5e663d2a6433
+>
 > ###### README Created by `Enebeli Emmanuel` for methcreate
