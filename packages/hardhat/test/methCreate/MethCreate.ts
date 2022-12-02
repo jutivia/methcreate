@@ -37,7 +37,7 @@ describe("MethCreate", function () {
     let setUSDCBalance: Function;
     let setETHBalance: Function;
 
-    let INITIAL_USDC_BALANCE = parseUnits("10000000", 6); // just use a large number
+    let INITIAL_USDC_BALANCE = USDC_PAYMENT; // just use a large number
     let INITIAL_ETH_BALANCE = parseEther("1000");
 
     before(async function () {
@@ -98,8 +98,8 @@ describe("MethCreate", function () {
       expect(await methCreate.ownerOf(0)).to.be.equals(sellerAddress);
 
       const token0Info = await methCreate.tokensInfo(0);
-      expect(token0Info[0]).to.be.equals(true);
-      expect(BigNumber.from(token0Info[1]).eq(NFT_PRICE)).to.be.equals(true);
+      expect(token0Info[0]).to.be.true;
+      expect(BigNumber.from(token0Info[1]).eq(NFT_PRICE)).to.be.true;
 
       await expect(methCreate.connect(seller).safeMint("secondTokenURI", NFT_PRICE, false))
         .to.emit(methCreate, "Transfer")
@@ -108,7 +108,7 @@ describe("MethCreate", function () {
 
       const token1Info = await methCreate.tokensInfo(1);
       expect(token1Info[0]).to.be.equals(false);
-      expect(BigNumber.from(token1Info[1]).eq(NFT_PRICE)).to.be.equals(true);
+      expect(BigNumber.from(token1Info[1]).eq(NFT_PRICE)).to.be.true;
     });
 
     it("should allow a seller to update nft", async function () {
@@ -125,8 +125,8 @@ describe("MethCreate", function () {
         .to.emit(methCreate, "TokenUpdated")
         .withArgs(0, newPrice, true);
       const tokenInfoAfterPriceUpdate = await methCreate.tokensInfo(0);
-      expect(tokenInfoAfterPriceUpdate[0]).to.be.equals(true);
-      expect(BigNumber.from(tokenInfoAfterPriceUpdate[1]).eq(newPrice)).to.be.equals(true);
+      expect(tokenInfoAfterPriceUpdate[0]).to.be.true;
+      expect(BigNumber.from(tokenInfoAfterPriceUpdate[1]).eq(newPrice)).to.be.true;
 
       await expect(methCreate.connect(buyer).setSellable(0, false)).to.be.revertedWithCustomError(
         methCreate,
@@ -137,7 +137,7 @@ describe("MethCreate", function () {
         .withArgs(0, newPrice, false);
       const tokenInfoAfterSellableUpdate = await methCreate.tokensInfo(0);
       expect(tokenInfoAfterSellableUpdate[0]).to.be.equals(false);
-      expect(BigNumber.from(tokenInfoAfterSellableUpdate[1]).eq(newPrice)).to.be.equals(true);
+      expect(BigNumber.from(tokenInfoAfterSellableUpdate[1]).eq(newPrice)).to.be.true;
 
       await expect(methCreate.connect(buyer).setTokenInfo(0, NFT_PRICE, true)).to.be.revertedWithCustomError(
         methCreate,
@@ -147,8 +147,8 @@ describe("MethCreate", function () {
         .to.emit(methCreate, "TokenUpdated")
         .withArgs(0, NFT_PRICE, true);
       const tokenInfoAfterCompleteUpdate = await methCreate.tokensInfo(0);
-      expect(tokenInfoAfterCompleteUpdate[0]).to.be.equals(true);
-      expect(BigNumber.from(tokenInfoAfterCompleteUpdate[1]).eq(NFT_PRICE)).to.be.equals(true);
+      expect(tokenInfoAfterCompleteUpdate[0]).to.be.true;
+      expect(BigNumber.from(tokenInfoAfterCompleteUpdate[1]).eq(NFT_PRICE)).to.be.true;
     });
 
     it("should allow a buyer to buy an nft with eth", async function () {
@@ -181,7 +181,7 @@ describe("MethCreate", function () {
 
       const tokenInfoAfterSale = await methCreate.tokensInfo(0);
       expect(tokenInfoAfterSale[0]).to.be.equals(false);
-      expect(BigNumber.from(tokenInfoAfterSale[1]).eq(newPrice)).to.be.equals(true);
+      expect(BigNumber.from(tokenInfoAfterSale[1]).eq(newPrice)).to.be.true;
     });
 
     it("should allow owner to update price feeds", async function () {
@@ -241,6 +241,18 @@ describe("MethCreate", function () {
       await expect(
         methCreate.connect(buyer).buyNftWithToken(0, newPrice, false, USDC_PAYMENT.sub(1), USDC_ADDRESS),
       ).to.be.revertedWithCustomError(methCreate, "InsufficientPayment");
+
+      await methCreate.connect(seller).approve(methCreate.address, 0);
+
+      await expect(methCreate.connect(buyer).buyNftWithToken(0, newPrice, false, USDC_PAYMENT, USDC_ADDRESS))
+        .to.emit(methCreate, "TokenSold")
+        .withArgs(sellerAddress, buyerAddress, 0, ZERO_ADDRESS, anyValue);
+      expect((await USDC_CONTRACT.balanceOf(sellerAddress)).eq(USDC_PAYMENT)).to.be.true;
+      expect(await methCreate.ownerOf(0)).to.be.equals(buyerAddress);
+
+      const tokenInfoAfterSale = await methCreate.tokensInfo(0);
+      expect(tokenInfoAfterSale[0]).to.be.equals(false);
+      expect(BigNumber.from(tokenInfoAfterSale[1]).eq(newPrice)).to.be.true;
     });
   });
 });
