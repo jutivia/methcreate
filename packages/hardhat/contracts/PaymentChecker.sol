@@ -12,33 +12,23 @@ interface IERC20Decimals {
 library PaymentChecker {
     using PriceFeedConsumer for address;
 
-    function isPaymentSufficient(
-        uint256 payment,
-        address token,
-        uint256 price,
-        address feed,
-        bool ethIsToken0
-    ) internal view returns (bool) {
-        if (ethIsToken0) return isPaymentSufficientSupportingFeedWithEthAsToken0(payment, token, price, feed);
-        return isPaymentSufficientSupportingFeedWithEthAsToken1(payment, price, feed);
-    }
-
     /// @param payment The payment
     /// @param token The payment token
     /// @param price The price of the content
     /// @return bool
-    function isPaymentSufficientSupportingFeedWithEthAsToken0(
+    function isPaymentSufficient(
         uint256 payment,
         address token,
         uint256 price,
         address feed
-    ) private view returns (bool) {
+    ) internal view returns (bool) {
         uint256 paymentMajorFeedToken;
         uint256 paymentMinorFeedTokenNumerator;
         uint256 priceMajorFeedToken;
         uint256 priceMinorFeedTokenNumerator;
 
         uint tokenMultiplier = 10 ** IERC20Decimals(token).decimals();
+
         uint ethFeedTokenComboMultiplier = 1 ether * 10 ** feed.getDecimalPlaces();
 
         (paymentMajorFeedToken, paymentMinorFeedTokenNumerator) = convertTokenToFeedToken(
@@ -46,6 +36,7 @@ library PaymentChecker {
             tokenMultiplier,
             ethFeedTokenComboMultiplier
         );
+
         (priceMajorFeedToken, priceMinorFeedTokenNumerator) = convertWEIToFeedToken(
             price,
             feed,
@@ -99,16 +90,5 @@ library PaymentChecker {
     ) private pure returns (uint256 majorFeedToken, uint256 minorFeedTokenNumerator) {
         majorFeedToken = amount / tokenMultiplier;
         minorFeedTokenNumerator = (amount % tokenMultiplier) * ethFeedTokenComboMultiplier;
-    }
-
-    function isPaymentSufficientSupportingFeedWithEthAsToken1(
-        uint256 amount,
-        uint256 price,
-        address feed
-    ) private view returns (bool) {
-        uint256 weiPerToken = feed.getPrice();
-        uint256 tokenInWei = weiPerToken * amount;
-
-        return tokenInWei >= price;
     }
 }

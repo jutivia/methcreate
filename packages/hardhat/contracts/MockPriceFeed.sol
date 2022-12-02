@@ -3,7 +3,7 @@ pragma solidity 0.8.17;
 
 contract MockPriceFeed {
     int256 public immutable price;
-    uint public _decimals;
+    uint public immutable _decimals;
 
     constructor(int256 _price, uint dp) {
         price = _price;
@@ -20,9 +20,5 @@ contract MockPriceFeed {
 
     function decimals() external view returns (uint) {
         return _decimals;
-    }
-
-    function setDecimals(uint newDecimals) external {
-        _decimals = newDecimals;
     }
 }

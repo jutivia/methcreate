@@ -7,11 +7,6 @@ interface IMethCreate {
         uint price;
     }
 
-    struct PriceFeed {
-        address feed;
-        bool isEthToken0;
-    }
-
     error NotTokenOwner();
     error NotSellable();
     error InsufficientPayment();
@@ -28,7 +23,7 @@ interface IMethCreate {
         uint time
     );
 
-    event PriceFeedUpdated(address indexed token, address indexed feed, bool indexed isEthToken0);
+    event PriceFeedUpdated(address indexed token, address indexed priceFeed);
 
     event SellerAddedPaymentTokens(address indexed seller, address indexed token);
 
@@ -50,7 +45,7 @@ interface IMethCreate {
         address paymentToken
     ) external payable;
 
-    function updatePriceFeed(address token, PriceFeed calldata feed) external;
+    function updatePriceFeed(address token, address priceFeed) external;
 
     function addToMyPaymentTokens(address token) external;
 
