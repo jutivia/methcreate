@@ -20,7 +20,7 @@ contract MethCreate is IMethCreate, Ownable, ERC721, ERC721URIStorage {
     Counters.Counter private _nftTokenIdCounter;
     mapping(uint => TokenInfo) public tokensInfo;
     mapping(address => EnumerableSet.AddressSet) sellersChoicePaymentTokens;
-    mapping(address => PriceFeed) public priceFeeds;
+    mapping(address => address) public priceFeeds;
 
     modifier onlyTokenOwner(uint nftTokenId) {
         if (ownerOf(nftTokenId) != msg.sender) revert NotTokenOwner();
@@ -83,21 +83,14 @@ contract MethCreate is IMethCreate, Ownable, ERC721, ERC721URIStorage {
         address paymentToken
     ) external payable onlySellableToken(nftTokenId) {
         address seller = ownerOf(nftTokenId);
-        PriceFeed memory priceFeed = priceFeeds[paymentToken];
+        address priceFeed = priceFeeds[paymentToken];
 
-        if (!(sellersChoicePaymentTokens[seller].contains(paymentToken) && priceFeed.feed != address(0)))
+        if (!(sellersChoicePaymentTokens[seller].contains(paymentToken) && priceFeed != address(0)))
             revert InvalidPaymentToken();
 
         uint tokenPrice = tokensInfo[nftTokenId].price;
-        if (
-            !PaymentChecker.isPaymentSufficient(
-                payment,
-                paymentToken,
-                tokenPrice,
-                priceFeed.feed,
-                priceFeed.isEthToken0
-            )
-        ) revert InsufficientPayment();
+        if (!PaymentChecker.isPaymentSufficient(payment, paymentToken, tokenPrice, priceFeed))
+            revert InsufficientPayment();
 
         setTokenInfo(nftTokenId, newPrice, sellable);
 
@@ -107,7 +100,7 @@ contract MethCreate is IMethCreate, Ownable, ERC721, ERC721URIStorage {
     }
 
     function addToMyPaymentTokens(address token) external {
-        if (priceFeeds[token].feed == address(0)) revert NoPriceFeedSupportForToken();
+        if (priceFeeds[token] == address(0)) revert NoPriceFeedSupportForToken();
         sellersChoicePaymentTokens[msg.sender].add(token);
 
         emit SellerAddedPaymentTokens(msg.sender, token);
@@ -119,10 +112,10 @@ contract MethCreate is IMethCreate, Ownable, ERC721, ERC721URIStorage {
         emit SellerRemovedPaymentTokens(msg.sender, token);
     }
 
-    function updatePriceFeed(address token, PriceFeed calldata priceFeed) external onlyOwner {
+    function updatePriceFeed(address token, address priceFeed) external onlyOwner {
         priceFeeds[token] = priceFeed;
 
-        emit PriceFeedUpdated(token, priceFeed.feed, priceFeed.isEthToken0);
+        emit PriceFeedUpdated(token, priceFeed);
     }
 
     function getSellersPaymentToken(address seller) external view returns (address[] memory tokens) {

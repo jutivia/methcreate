@@ -12,9 +12,9 @@ describe("MethCreate", function () {
   });
 
   describe("MethCreate", function () {
-    const USDC_ADDRESS = "0x07865c6E87B9F70255377e024ace6630C1Eaa37F"; // Mumbai testnet
+    const USDC_ADDRESS = "0xe6b8a5CF854791412c1f6EFC7CAf629f5Df1c747"; // Mumbai testnet
     const ZERO_ADDRESS = zeroPad("0x", 20);
-    const PRICE_FEED = "0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e"; // Mumbai testnet
+    const PRICE_FEED = "0xd0D5e3DB44DE05E9F294BB0a3bEEaF030DE24Ada"; // Mumbai testnet
     const CHAINLINK_USD_MULTIPLIER = parseUnits("1", 8);
 
     const WEI_PER_ETHER = parseEther("1");
@@ -184,20 +184,16 @@ describe("MethCreate", function () {
       expect(BigNumber.from(tokenInfoAfterSale[1]).eq(newPrice)).to.be.equals(true);
     });
 
-    it("should allow buyer to buy an nft with a token", async function () {});
-
     it("should allow owner to update price feeds", async function () {
-      await expect(methCreate.connect(buyer).updatePriceFeed(USDC_ADDRESS, [PRICE_FEED, true])).to.be.revertedWith(
+      await expect(methCreate.connect(buyer).updatePriceFeed(USDC_ADDRESS, PRICE_FEED)).to.be.revertedWith(
         "Ownable: caller is not the owner",
       );
 
-      await expect(methCreate.connect(owner).updatePriceFeed(USDC_ADDRESS, [PRICE_FEED, true]))
+      await expect(methCreate.connect(owner).updatePriceFeed(USDC_ADDRESS, PRICE_FEED))
         .to.emit(methCreate, "PriceFeedUpdated")
-        .withArgs(USDC_ADDRESS, PRICE_FEED, true);
+        .withArgs(USDC_ADDRESS, PRICE_FEED);
 
-      const priceFeedFromChain = await methCreate.priceFeeds(USDC_ADDRESS);
-      expect(priceFeedFromChain[0]).to.be.equals(PRICE_FEED);
-      expect(priceFeedFromChain[1]).to.be.equals(true);
+      expect(await methCreate.priceFeeds(USDC_ADDRESS)).to.be.equals(PRICE_FEED);
     });
 
     it("should allow seller to manage payment tokens", async function () {
@@ -206,7 +202,7 @@ describe("MethCreate", function () {
         "NoPriceFeedSupportForToken",
       );
 
-      await methCreate.connect(owner).updatePriceFeed(USDC_ADDRESS, [PRICE_FEED, true]);
+      await methCreate.connect(owner).updatePriceFeed(USDC_ADDRESS, PRICE_FEED);
       await expect(methCreate.connect(seller).addToMyPaymentTokens(USDC_ADDRESS))
         .to.emit(methCreate, "SellerAddedPaymentTokens")
         .withArgs(sellerAddress, USDC_ADDRESS);
@@ -220,6 +216,31 @@ describe("MethCreate", function () {
 
       const paymentTokensAfterRemoving = await methCreate.getSellersPaymentToken(sellerAddress);
       expect(paymentTokensAfterRemoving.length).to.be.equals(0);
+    });
+
+    it("should allow buyer to buy an nft with a token", async function () {
+      await expect(methCreate.connect(seller).safeMint("firstTokenURI", NFT_PRICE, false))
+        .to.emit(methCreate, "Transfer")
+        .withArgs(ZERO_ADDRESS, sellerAddress, 0);
+
+      await methCreate.connect(seller).approve(methCreate.address, 0);
+
+      const newPrice = NFT_PRICE.add(1);
+      await expect(
+        methCreate.connect(buyer).buyNftWithToken(0, newPrice, false, USDC_PAYMENT, USDC_ADDRESS),
+      ).to.be.revertedWithCustomError(methCreate, "NotSellable");
+
+      await methCreate.connect(seller).setSellable(0, true);
+
+      await expect(
+        methCreate.connect(buyer).buyNftWithToken(0, newPrice, false, USDC_PAYMENT, USDC_ADDRESS),
+      ).to.be.revertedWithCustomError(methCreate, "InvalidPaymentToken");
+
+      await methCreate.connect(owner).updatePriceFeed(USDC_ADDRESS, PRICE_FEED);
+      await methCreate.connect(seller).addToMyPaymentTokens(USDC_ADDRESS);
+      await expect(
+        methCreate.connect(buyer).buyNftWithToken(0, newPrice, false, USDC_PAYMENT.sub(1), USDC_ADDRESS),
+      ).to.be.revertedWithCustomError(methCreate, "InsufficientPayment");
     });
   });
 });
