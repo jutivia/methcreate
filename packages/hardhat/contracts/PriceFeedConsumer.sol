@@ -4,7 +4,7 @@ pragma solidity 0.8.17;
 import { AggregatorV3Interface } from "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 
-library PriceFeed {
+library PriceFeedConsumer {
     /**
      * Returns the latest price
      */

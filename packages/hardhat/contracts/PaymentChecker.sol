@@ -1,7 +1,7 @@
 //SPDX-License-Identifier: MIT
 pragma solidity 0.8.17;
 
-import { PriceFeed } from "./PriceFeed.sol";
+import { PriceFeedConsumer } from "./PriceFeedConsumer.sol";
 
 interface IERC20Decimals {
     function decimals() external view returns (uint8);
@@ -10,7 +10,7 @@ interface IERC20Decimals {
 /// @title Compare payment in token to price in eth
 /// @author David, Enebeli
 library PaymentChecker {
-    using PriceFeed for address;
+    using PriceFeedConsumer for address;
 
     function isPaymentSufficient(
         uint256 payment,
