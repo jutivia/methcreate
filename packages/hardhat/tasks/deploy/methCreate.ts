@@ -9,8 +9,7 @@ task("deploy:MethCreate").setAction(async function (taskArguments: TaskArguments
   const signers: SignerWithAddress[] = await ethers.getSigners();
   const methCreateFactory: MethCreate__factory = <MethCreate__factory>await ethers.getContractFactory("MethCreate");
   const methCreate: MethCreate = <MethCreate>await methCreateFactory.connect(signers[0]).deploy();
-  await methCreate.deployed();
-  console.log("MethCreate deployed to: ", methCreate.address);
+  const deployTx = await methCreate.deployed();
 
   // verify on polygonscan
   const localChainId = 31337;
