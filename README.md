@@ -49,71 +49,13 @@ An online video sharing, live streaming and social media platform
 - Streaming content
 - Live message
 - Profile
-- Private content can only be viewed by those that have bought or that have being given permission by the owne
-  <<<<<<< HEAD
-  =======
+- Private content can only be viewed by those that have bought or that have being given permission by the owner
 
 </p>
 
-#
 
-> ## Technologies
->
-> | <b><u>Stack</u></b> | <b><u>Usage</u></b> |
-> | :------------------ | :------------------ |
-> | **`Solidity`**      | Smart contract      |
-> | **`ipfs`**          | database            |
-> | **`chainlink`**     | price feed          |
-> | **`the graph`**     | query data          |
-> | **`Next JS`**       | Frontend            |
 
-#
 
-> ## Repo Setup
-
-<p align="justify">
-To setup the repo, first fork the methcreate repo, then clone the forked repository to create a copy on the local machine.
-</p>
-
-    $ git clone https://github.com/EnebeliEmmanuel/methcreate.git
-
-<p align="justify">
-Change directory to the cloned repo and set the original Methcreate repository as the "upstream" and your forked repository as the "origin" using gitbash.
-</p>
-
-    $ git remote add upstream https://github.com/EnebeliEmmanuel/methcreate.git
-
-#
-
-> ## Requirements
-
-#
-
-- Hardhat
-- Alchemy key
-- Metamask key
-- Etherscan.io API Url
-- Node JS
-
-#
-
-> ## Setup the Project
->
-> **`*Note:`**
-
-<p align="justify">
-This project was setup on a windows 10 system using the gitbash terminal. Some of the commands used may not work with the VScode terminal, command prompt or powershell.
-</p>
-
-The steps involved are outlined below:-
-
-#
-
-> ### Install Hardhat
->
-> The first step involves cloning and installing hardhat.
->
-> > > > > > > b50166cc48d644a33a14ae27f03a5e663d2a6433
 
 </p>
 
@@ -214,13 +156,12 @@ $ npm install --save-dev "@nomiclabs/hardhat-waffle" "ethereum-waffle" "chai" "@
 
 #
 
-<<<<<<< HEAD
-`To retrieve your alchemy key.`
-=======
 
 `To retrieve your alchemy key.`
 
-> > > > > > > b50166cc48d644a33a14ae27f03a5e663d2a6433
+
+`To retrieve your alchemy key.`
+
 
 - Login to your account on https://www.alchemy.com/
 - Once youre redirected to your [dashboard](https://dashboard.alchemyapi.io/), click on create app.
@@ -228,30 +169,9 @@ $ npm install --save-dev "@nomiclabs/hardhat-waffle" "ethereum-waffle" "chai" "@
 - Once the app has been created, click on view key.
 - Copy the HTTP and place it in the .env file.
 
-<<<<<<< HEAD
 
-=======
 
-> > > > > > > b50166cc48d644a33a14ae27f03a5e663d2a6433
 
-<p align="center" width="100%">
-  <img src="https://drive.google.com/uc?export=view&id=1XFtACFN-LWvoDUD1QyJJY9uOc7KNkrL6" alt="alchemy"/>
-</p>
-
-#
-
-<<<<<<< HEAD
-`To retrieve your etherscan key.`
-=======
-
-`To retrieve your etherscan key.`
-
-> > > > > > > b50166cc48d644a33a14ae27f03a5e663d2a6433
-
-- Login to [etherscan](https://etherscan.io/) and hover over the dropdown arrow for your profile on the navbar.
-- Click on API keys and add to create a new project (optional step).
-- Once the project has been created, click on the copy button to copy the API key.
-- Paste it in the .env file
 
 <p align="center" width="100%">
   <img src="https://drive.google.com/uc?export=view&id=1Gq-hPuwjwb3TOCH2dqUA93VxfyrbUDN6" alt="etherscan key"/>
@@ -265,9 +185,8 @@ $ npm install --save-dev "@nomiclabs/hardhat-waffle" "ethereum-waffle" "chai" "@
 
 =======
 
-> ### Setup Hardhat.config
->
-> > > > > > > b50166cc48d644a33a14ae27f03a5e663d2a6433
+
+
 
 Below is the setup for the hardhat.config.json
 
