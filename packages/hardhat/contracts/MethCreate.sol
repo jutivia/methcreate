@@ -18,9 +18,9 @@ contract MethCreate is IMethCreate, Ownable, ERC721, ERC721URIStorage {
     using EnumerableSet for EnumerableSet.AddressSet;
 
     Counters.Counter private _nftTokenIdCounter;
-    mapping(uint => TokenInfo) tokensInfo;
+    mapping(uint => TokenInfo) public tokensInfo;
     mapping(address => EnumerableSet.AddressSet) sellersChoicePaymentTokens;
-    mapping(address => PriceFeed) priceFeeds;
+    mapping(address => address) public priceFeeds;
 
     modifier onlyTokenOwner(uint nftTokenId) {
         if (ownerOf(nftTokenId) != msg.sender) revert NotTokenOwner();
@@ -33,10 +33,10 @@ contract MethCreate is IMethCreate, Ownable, ERC721, ERC721URIStorage {
 
     constructor() ERC721("MethCreate", "MTC") {}
 
-    function safeMint(address to, string memory uri, uint price, bool sellable) external {
+    function safeMint(string memory uri, uint price, bool sellable) external {
         uint256 nftTokenId = _nftTokenIdCounter.current();
         _nftTokenIdCounter.increment();
-        _safeMint(to, nftTokenId);
+        _safeMint(msg.sender, nftTokenId);
         _setTokenURI(nftTokenId, uri);
 
         TokenInfo storage TokenInfo = tokensInfo[nftTokenId];
@@ -63,10 +63,10 @@ contract MethCreate is IMethCreate, Ownable, ERC721, ERC721URIStorage {
         uint newPrice,
         bool sellable
     ) external payable onlySellableToken(nftTokenId) {
-        if (msg.value <= tokensInfo[nftTokenId].price) revert InsufficientPayment();
+        if (msg.value < tokensInfo[nftTokenId].price) revert InsufficientPayment();
 
         address seller = ownerOf(nftTokenId);
-        safeTransferFrom(seller, msg.sender, nftTokenId);
+        this.safeTransferFrom(seller, msg.sender, nftTokenId);
 
         setTokenInfo(nftTokenId, newPrice, sellable);
 
@@ -83,51 +83,41 @@ contract MethCreate is IMethCreate, Ownable, ERC721, ERC721URIStorage {
         address paymentToken
     ) external payable onlySellableToken(nftTokenId) {
         address seller = ownerOf(nftTokenId);
-        PriceFeed memory priceFeed = priceFeeds[paymentToken];
+        address priceFeed = priceFeeds[paymentToken];
 
-        if (!(sellersChoicePaymentTokens[seller].contains(paymentToken) && priceFeed.feed != address(0)))
+        if (!(sellersChoicePaymentTokens[seller].contains(paymentToken) && priceFeed != address(0)))
             revert InvalidPaymentToken();
 
         uint tokenPrice = tokensInfo[nftTokenId].price;
-        if (
-            !PaymentChecker.isPaymentSufficient(
-                payment,
-                paymentToken,
-                tokenPrice,
-                priceFeed.feed,
-                priceFeed.ethIsToken0
-            )
-        ) revert InsufficientPayment();
+        if (!PaymentChecker.isPaymentSufficient(payment, paymentToken, tokenPrice, priceFeed))
+            revert InsufficientPayment();
+
+        this.safeTransferFrom(seller, msg.sender, nftTokenId);
 
         setTokenInfo(nftTokenId, newPrice, sellable);
 
-        SafeERC20.safeTransfer(IERC20(paymentToken), seller, payment);
+        SafeERC20.safeTransferFrom(IERC20(paymentToken), msg.sender, seller, payment);
 
         emit TokenSold(seller, msg.sender, nftTokenId, address(0), block.timestamp);
     }
 
-    function addToMyPaymentTokens(address[] calldata tokens) external {
-        address[] memory actualTokensAdded;
-        for (uint i = 0; i < tokens.length; i++) {
-            if (priceFeeds[tokens[i]].feed != address(0)) {
-                sellersChoicePaymentTokens[msg.sender].add(tokens[i]);
-                actualTokensAdded[i] = tokens[i];
-            }
-        }
+    function addToMyPaymentTokens(address token) external {
+        if (priceFeeds[token] == address(0)) revert NoPriceFeedSupportForToken();
+        sellersChoicePaymentTokens[msg.sender].add(token);
 
-        emit SellerAddedPaymentTokens(msg.sender, actualTokensAdded);
+        emit SellerAddedPaymentTokens(msg.sender, token);
     }
 
-    function removeFromMyPaymentTokens(address[] calldata tokens) external {
-        for (uint i = 0; i < tokens.length; i++) {
-            sellersChoicePaymentTokens[msg.sender].remove(tokens[i]);
-        }
+    function removeFromMyPaymentTokens(address token) external {
+        sellersChoicePaymentTokens[msg.sender].remove(token);
 
-        emit SellerRemovedPaymentTokens(msg.sender, tokens);
+        emit SellerRemovedPaymentTokens(msg.sender, token);
     }
 
-    function updatePriceFeed(address token, PriceFeed calldata feed) external onlyOwner {
-        priceFeeds[token] = feed;
+    function updatePriceFeed(address token, address priceFeed) external onlyOwner {
+        priceFeeds[token] = priceFeed;
+
+        emit PriceFeedUpdated(token, priceFeed);
     }
 
     function getSellersPaymentToken(address seller) external view returns (address[] memory tokens) {

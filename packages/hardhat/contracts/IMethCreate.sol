@@ -7,15 +7,11 @@ interface IMethCreate {
         uint price;
     }
 
-    struct PriceFeed {
-        address feed;
-        bool ethIsToken0;
-    }
-
     error NotTokenOwner();
     error NotSellable();
     error InsufficientPayment();
     error InvalidPaymentToken();
+    error NoPriceFeedSupportForToken();
 
     event TokenUpdated(uint indexed nftTokenId, uint indexed price, bool indexed sellable);
 
@@ -27,11 +23,13 @@ interface IMethCreate {
         uint time
     );
 
-    event SellerAddedPaymentTokens(address indexed seller, address[] indexed tokens);
+    event PriceFeedUpdated(address indexed token, address indexed priceFeed);
 
-    event SellerRemovedPaymentTokens(address indexed seller, address[] indexed tokens);
+    event SellerAddedPaymentTokens(address indexed seller, address indexed token);
 
-    function safeMint(address to, string memory uri, uint price, bool sellable) external;
+    event SellerRemovedPaymentTokens(address indexed seller, address indexed token);
+
+    function safeMint(string memory uri, uint price, bool sellable) external;
 
     function setPrice(uint nftTokenId, uint price) external;
 
@@ -47,11 +45,11 @@ interface IMethCreate {
         address paymentToken
     ) external payable;
 
-    function updatePriceFeed(address token, PriceFeed calldata feed) external;
+    function updatePriceFeed(address token, address priceFeed) external;
 
-    function addToMyPaymentTokens(address[] calldata tokens) external;
+    function addToMyPaymentTokens(address token) external;
 
-    function removeFromMyPaymentTokens(address[] calldata tokens) external;
+    function removeFromMyPaymentTokens(address token) external;
 
     function getSellersPaymentToken(address seller) external view returns (address[] memory tokens);
 
