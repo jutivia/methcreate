@@ -1,4 +1,4 @@
-import React from "react";
+
 import Link from "next/link";
 
 const NotFound = () => {
@@ -8,8 +8,8 @@ const NotFound = () => {
         <span className="block">Ooops! Page Not Found</span> Are You Lost
       </h1>
       <div>
-        <Link className="text-grey_p text-lg" href="/" passHref>
-            <a>Go Home</a>
+      <Link className="text-grey_p text-lg" href="/" passHref>
+            Go Home
          
         </Link>
       </div>
