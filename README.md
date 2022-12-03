@@ -1,4 +1,4 @@
-# methcreate content creation dapp
+# Polygon Hackfest submission 
 
 > ## Table of contents
 
@@ -35,7 +35,13 @@
 An online video sharing, live streaming and social media platform
 </p>
 
+
 #
+### Constraints
+
+
+
+
 
 > ## Project Features
 
@@ -49,9 +55,8 @@ An online video sharing, live streaming and social media platform
 - Streaming content
 - Live message
 - Profile
-- Private content can only be viewed by those that have bought or that have being given permission by the owne
-  <<<<<<< HEAD
-  =======
+- Private content can only be viewed by those that have bought or that have being given permission by the owner
+ 
 
 </p>
 
@@ -66,6 +71,9 @@ An online video sharing, live streaming and social media platform
 > | **`chainlink`**     | price feed          |
 > | **`the graph`**     | query data          |
 > | **`Next JS`**       | Frontend            |
+> | **`Tailwind`**      |CSS framework for faster and easier web development.|
+
+#
 
 #
 
@@ -113,67 +121,14 @@ The steps involved are outlined below:-
 >
 > The first step involves cloning and installing hardhat.
 >
-> > > > > > > b50166cc48d644a33a14ae27f03a5e663d2a6433
+
 
 </p>
 
 #
 
-> ## Technologies
->
-> | <b><u>Stack</u></b> | <b><u>Usage</u></b> |
-> | :------------------ | :------------------ |
-> | **`Solidity`**      | Smart contract      |
-> | **`ipfs`**          | database            |
-> | **`chainlink`**     | price feed          |
-> | **`the graph`**     | query data          |
-> | **`Next JS`**       | Frontend            |
 
-#
 
-> ## Repo Setup
-
-<p align="justify">
-To setup the repo, first fork the methcreate repo, then clone the forked repository to create a copy on the local machine.
-</p>
-
-    $ git clone https://github.com/EnebeliEmmanuel/methcreate.git
-
-<p align="justify">
-Change directory to the cloned repo and set the original Methcreate repository as the "upstream" and your forked repository as the "origin" using gitbash.
-</p>
-
-    $ git remote add upstream https://github.com/EnebeliEmmanuel/methcreate.git
-
-#
-
-> ## Requirements
-
-#
-
-- Hardhat
-- Alchemy key
-- Metamask key
-- Etherscan.io API Url
-- Node JS
-
-#
-
-> ## Setup the Project
->
-> **`*Note:`**
-
-<p align="justify">
-This project was setup on a windows 10 system using the gitbash terminal. Some of the commands used may not work with the VScode terminal, command prompt or powershell.
-</p>
-
-The steps involved are outlined below:-
-
-#
-
-> ### Install Hardhat
->
-> The first step involves cloning and installing hardhat.
 
 ```shell
 $ cd Methcreate
@@ -187,7 +142,7 @@ $ npm install --save-dev "@nomiclabs/hardhat-waffle" "ethereum-waffle" "chai" "@
 # If you encounter errors installing the dependencies above, delete the old package-lock.json and run the `npm install --save-dev` command again
 ```
 
-<<<<<<< HEAD
+
 
 > ### Env Setup
 >
