@@ -1,5 +1,3 @@
-import Image from "next/image";
-import React from "react";
 import {
   bluepause,
   blueplay,
@@ -10,8 +8,14 @@ import {
   yellowstop,
 } from "../../images";
 import Button from "./Button";
+import { useRouter } from 'next/router'
+
+
+import Image from "next/image";
+import React from "react";
 
 const Hero = () => {
+  const router = useRouter();
   return (
     <div className="relative text-white mt-[146px] max-w-[782px] mx-auto text-center px-4">
       <div className="absolute -z-10  hidden xl:block   -right-[200px] top-4">
@@ -46,7 +50,7 @@ const Hero = () => {
         sapien tincidunt bibendum faucibus. Ac consequat rhoncus nibh dapibus
         aliquet.
       </p>
-      <Button text="Launch dapp" />
+      <Button onClickHandle={() => {router.push("/dashboard")}} text="Launch dapp" />
     </div>
   );
 };

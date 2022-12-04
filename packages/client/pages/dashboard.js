@@ -1,9 +1,16 @@
-import React from 'react'
+import { UploadContent } from "../components";
+import RootLayout from "../components/Dashboard/RootLayout";
+import StreamCards from "../components/StreamCard";
+import React from "react";
 
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
-  )
-}
+    <RootLayout>
+      <StreamCards />
 
-export default Dashboard
+      {/* <UploadContent /> */}
+    </RootLayout>
+  );
+};
+
+export default Dashboard;

@@ -8,7 +8,7 @@ const RootLayout = ({ children }) => {
       <div className="w-[23%] h-[100%]">
         <Sidebar />
       </div>
-      <div className="flex flex-col w-[77%]">
+      <div className=" w-[77%] ">
         <Navbar />
         <div>{children}</div>
       </div>
