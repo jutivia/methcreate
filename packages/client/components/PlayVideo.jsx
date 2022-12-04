@@ -9,7 +9,7 @@ import { FaRegThumbsDown, FaRegThumbsUp } from "react-icons/fa";
 const PlayVideo = () => {
   return (
     <div className="flex flex-col md:flex-row gap-5 px-3">
-      <div className="max-h-[488px] w-full ">
+      <div className="max-h-[788px]  w-[70%]">
         <video
           className="w-full rounded-[5px]"
           height="100%"
@@ -67,7 +67,7 @@ const PlayVideo = () => {
             className="relative pb-6 flex     flex-col justify-center"
           >
             <div className=" flex gap-1 relative py-1 px-2 text-[10px]  ">
-              <Link href={`play/${items.id}`}>
+              <Link href={`${items.id}`}>
                 <Image
                   className="aspect-video w-[328px] rounded-[8px] object-cover object-center"
                   src={items.StreamImg}
