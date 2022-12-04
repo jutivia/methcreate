@@ -23,7 +23,7 @@ const ExploreCard = () => {
                 className="aspect-video w-[328px] rounded-[8px] object-cover object-center"
                 src={items.StreamImg}
               />
-              <div>
+              <div className="mt-4">
                 <h1 className="text-[16px] font-[500] text-light  font-inter">
                   {items.Title}
                 </h1>
