@@ -28,6 +28,7 @@ const ExploreCard = () => {
                 />
               </Link>
               <div>
+
                 <h1 className="text-[16px] font-[500] text-light  font-inter">
                   {items.Title}
                 </h1>

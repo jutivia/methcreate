@@ -1,33 +1,15 @@
-# Polygon Hackfest submission
+![MIT LICENSE](https://badgen.net//badge/license/MIT/green) ![TEST BADGE](https://img.shields.io/badge/Test%3F-PASSING-green.svg) ![COVERAGE BADGE](https://img.shields.io/badge/Coverage%3F-100-green.svg)
 
-> ## Overview
+# MetaCreate
 
 <p align="justify">
 An online video sharing, live streaming and social media platform
 </p>
 
-#
+![Metacreate (1)](https://user-images.githubusercontent.com/76119744/205514424-31bc505b-d944-4800-943c-9fa4a5141763.png)
 
-### Constraints
+## Technologies
 
-- we could not make use of the zkevm with chainlink because chainlink has not extended their coverage there yet
-
-> ## Project Features
-
-- Like
-- Share
-- Subscribe
-- Follow
-- Vote for content
-- Buying content
-- Selling content
-- Streaming content
-- Live message
-- Profile
-- Private content can only be viewed by those that have bought or that have being given permission by the owner
-
-> ## Technologies
->
 > | <b><u>Stack</u></b> | <b><u>Usage</u></b>                                  |
 > | :------------------ | :--------------------------------------------------- |
 > | **`Solidity`**      | Smart contract                                       |
@@ -37,64 +19,80 @@ An online video sharing, live streaming and social media platform
 > | **`Next JS`**       | Frontend                                             |
 > | **` TailwiNd`**     | CSS framework for faster and easier web development. |
 
-#
+## Run the DApp Locally
 
-### Run the DApp Locally
-
-### Open new terminal window and clone this repository
+### clone repository
 
 ```
 git clone https://github.com/jutivia/methcreate
 ```
 
-#### Install dependencies
+### Install dependencies
 
 ```
-npm install
+yarn install
 ```
 
-#### Compile smart contract
+### Compile smart contract
 
 ```
-npx hardhat compile
+yarn compile
 ```
 
-#### Deploy smart contract
+### Update .env
+
+Make an env file from [.env.example](packages/hardhat/.env.example)
+and update the following variables
 
 ```
-npx hardhat run scripts/deploy.ts --network namhmii
+# Rpc urls
+POLYGON_MUMBAI_RPC="https://zzzzzzzzzzzzzzzzzzzz"
+POLYGON_MAINNET_RPC=https://zzzzzzzzzzzzzzzzzzzz"
+PRIVATE_KEY="zzzzzzzzzzzzzzzzzzz"
+
+# Block explorer API keys
+POLYGONSCAN_API_KEY="zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
+
+# Network - polygon-mumbai or polygon-mainnnet
+DEFAULT_NETWORK="polygon-mumbai"
 ```
 
-#### Test smart contract
+### Test smart contract
 
 ```
-npx hardhat test test/bondAndStake.ts.
+yarn fork <RPC_URL>
+yarn test
 ```
 
-#### Navigate to the client
+### Test coverage
 
 ```
-cd client
+yarn fork <RPC_URL>
+yarn coverage
 ```
 
-#### Install dependencies
+### Deploy and verify smart contract
 
 ```
-yarn
+yarn deploy
 ```
 
-#### Start DApp
+### Start DApp
 
 ```
-yarn start
+yarn dev
 ```
 
-- Open metamask browser wallet and connect network.
+## How to Contribute
 
-```
-#### Hardhat help commands
-npx hardhat help
+- [Coding Guidelines](CONTRIBUTIONS/CODING_GUIDELINES.md)
+- [Commits](CONTRIBUTIONS/COMMITS.md)
+- [Prs](CONTRIBUTIONS/PRs.md)
+- [Structure](CONTRIBUTIONS/STRUCTURE.md)
 
-```
+## Credits
 
-> ###### README Created by `Enebeli Emmanuel` for methcreate
+- [David Enebeli](https://github.com/havidtech)
+- [Emmanuel Enebeli ](https://github.com/EnebeliEmmanuel)
+- [KCPele](https://github.com/KcPele)
+- [Jutiva](https://github.com/jutivia)
