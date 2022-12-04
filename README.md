@@ -50,51 +50,39 @@ git clone https://github.com/jutivia/methcreate
 #### Install dependencies
 
 ```
-npm install
+yarn install
 ```
 
 #### Compile smart contract
 
 ```
-npx hardhat compile
-```
-
-#### Deploy smart contract
-
-```
-npx hardhat run scripts/deploy.ts --network namhmii
+yarn compile
 ```
 
 #### Test smart contract
 
 ```
-npx hardhat test test/bondAndStake.ts.
+yarn fork <RPC_URL>
+yarn test
 ```
 
-#### Navigate to the client
+#### Test coverage
 
 ```
-cd client
+yarn fork <RPC_URL>
+yarn coverage
 ```
 
-#### Install dependencies
+#### Deploy and verify smart contract
 
 ```
-yarn
+yarn deploy
 ```
 
 #### Start DApp
 
 ```
 yarn start
-```
-
-- Open metamask browser wallet and connect network.
-
-```
-#### Hardhat help commands
-npx hardhat help
-
 ```
 
 > ###### README Created by `Enebeli Emmanuel` for methcreate
