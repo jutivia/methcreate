@@ -18,11 +18,10 @@ const ContentCreation = () => {
         <video
           className="w-full rounded-[5px]"
           height="413"
+          id="video"
+          src="http://www.w3schools.com/html/mov_bbb.mp4"
+          type="video/mp4"
           controls
-          src="https://www.youtube.com/embed/QsEKICkpQBI"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          title="Embedded youtube"
         />
       </div>
     </div>
