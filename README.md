@@ -1,4 +1,4 @@
-![MIT LICENSE](https://badgen.net//badge/license/MIT/green) ![TEST BADGE](https://img.shields.io/badge/Test%3F-yes-green.svg) ![COVERAGE BADGE](https://img.shields.io/badge/Coverage%3F-yes-green.svg)
+![MIT LICENSE](https://badgen.net//badge/license/MIT/green) ![TEST BADGE](https://img.shields.io/badge/Test%3F-PASSING-green.svg) ![COVERAGE BADGE](https://img.shields.io/badge/Coverage%3F-100-green.svg)
 
 # MetaCreate
 
