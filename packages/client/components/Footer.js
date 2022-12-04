@@ -3,10 +3,7 @@ import Image from "next/image";
 import { Logo } from "../images";
 
 import { BsTwitter } from "react-icons/bs";
-<<<<<<< HEAD
-=======
 import StreamCards from "./StreamCard";
->>>>>>> d649ac7d4de327aa65c4758a25d681f00d8b551d
 const Footer = () => {
   return (
     <div >
@@ -58,10 +55,7 @@ const Footer = () => {
         </div>
         <p className="text-[#FFF] opacity-50 mt-10">Metacreate is a team project as part of efforts to participate and win the Polygon Hackathon.</p>
       </div>
-<<<<<<< HEAD
-=======
       
->>>>>>> d649ac7d4de327aa65c4758a25d681f00d8b551d
     </div>
   );
 };

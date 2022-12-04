@@ -10,51 +10,19 @@ interface IMethCreate {
     error NotTokenOwner();
     error NotSellable();
     error InsufficientPayment();
-<<<<<<< HEAD
-
-    event TokenUpdated(uint indexed tokenId, uint indexed price, bool indexed sellable);
-=======
     error InvalidPaymentToken();
     error NoPriceFeedSupportForToken();
 
     event TokenUpdated(uint indexed nftTokenId, uint indexed price, bool indexed sellable);
->>>>>>> d649ac7d4de327aa65c4758a25d681f00d8b551d
 
     event TokenSold(
         address indexed seller,
         address indexed buyer,
-<<<<<<< HEAD
-        uint indexed tokenId,
-=======
         uint indexed nftTokenId,
->>>>>>> d649ac7d4de327aa65c4758a25d681f00d8b551d
         address paymentToken,
         uint time
     );
 
-<<<<<<< HEAD
-    event SellerAddedPaymentTokens(address indexed seller, address[] indexed tokens);
-
-    event SellerRemovedPaymentTokens(address indexed seller, address[] indexed tokens);
-
-    function safeMint(address to, string memory uri, uint price, bool sellable) external;
-
-    function setPrice(uint tokenId, uint price) external;
-
-    function setSellable(uint tokenId, bool sellable) external;
-
-    function buyTokenWithEth(uint tokenId, uint newPrice, bool sellable) external payable;
-
-    function addToMyPaymentTokens(address[] calldata tokens) external;
-
-    function removeFromMyPaymentTokens(address[] calldata tokens) external;
-
-    function getSellersPaymentToken(address seller) external view returns (address[] memory tokens);
-
-    function setTokenInfo(uint tokenId, uint price, bool sellable) external;
-
-    function tokenURI(uint256 tokenId) external view returns (string memory);
-=======
     event PriceFeedUpdated(address indexed token, address indexed priceFeed);
 
     event SellerAddedPaymentTokens(address indexed seller, address indexed token);
@@ -88,5 +56,4 @@ interface IMethCreate {
     function setTokenInfo(uint nftTokenId, uint price, bool sellable) external;
 
     function tokenURI(uint256 nftTokenId) external view returns (string memory);
->>>>>>> d649ac7d4de327aa65c4758a25d681f00d8b551d
 }

@@ -53,7 +53,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="sidebar p-6 flex flex-col h-[100vh] overflow-auto">
+    <div className="sidebar p-6 flex flex-col h-[100vh] overflow-auto scrollbar-hide">
       <div className=" flex flex-row items-center justify-between">
         <Image
           onClick={toggleSidebar}
