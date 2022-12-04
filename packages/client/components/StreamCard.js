@@ -4,48 +4,56 @@ import {cardData} from "./data/CardData"
  
 const StreamCards = () => { 
   return ( 
+    <>
+    <div>
+        <p className="text-[18px] font-[600] text-[#F5F5F5] mt-6 ">Live streams</p>
+        <div className='flex mt-4 gap-5 flex-wrap justify-between w-[97%] '> 
     
-        <div className='flex mx-[-8px] w-[100%] justify-between '> 
-            
             {cardData?.map((items) => ( 
               
-                <div key={items} className="relative flex min-h-screen flex-col justify-center">
-             <div className="flex gap-2 items-center  absolute  z-10 py-[5px] px-3 rounded-2xl overflow-hidden md:top-[300px] right-2">
-                <Image src={items.StatusImg} alt="status" width={63} height={25} />
-                  <div className="bg-[#000000] opacity-40 -z-10 absolute inset-0"></div>
-                </div>
-                  <div className="mx-auto flex w-96 flex-col justify-center ">
-                  
+            <div key={items} className="relative pb-6    flex w-[354px]  flex-col justify-center">
+                <div className="relative">
+                     <Image src={items.StatusImg} alt="status" width={63} height={25} className="absolute bottom-[3%] right-[4%]" />
                     <Image className="aspect-video w-96 rounded-t-2xl object-cover object-center" src={items.StreamImg} />
-                 
+                </div>
+
+             
+                  <div className="mx-auto  flex w-full flex-col justify-center ">
+                  
+                    
                     <div className="p-4 flex  justify-between ">
                       <div className="text-blue-400 text-xs  ">
                        <Image src={items.ProfileImg} alt="profile" width={66} height={85}/>
                       
                       </div>
-                      <div className="w-96 ml-4">
-                      <h1 className="text-2xl  text-light  font-inter">{items.Title}</h1>
+                      <div className="w-96 ml-2">
+                      <h1 className="text-[16px] font-[500] text-light  font-inter">{items.Title}</h1>
                       </div>
-                      <BsThreeDotsVertical size={15} />
+                      <BsThreeDotsVertical  size={25} />
                       
                     </div>
                     <div>
-                        <h3 className="text-[ #D4D4D4] mx-20">{items.Name}</h3>
+                        <h3 className="text-[#D4D4D4] ml-16">{items.Name}</h3>
                     </div>
-                    <div className=" w-[100%] flex">
-                        <h3 className="text-[ #D4D4D4] mx-20  mt-2">{items.Viewers} </h3>
-                        <h3 className="text-[ #D4D4D4] mx-[-70px] md:w-fit py-1 px-2 bg-[#262626] flex h-8  rounded-[14px] mt-1">{items.Text}</h3>
-                        <h3 className="text-[ #D4D4D4] ml-20 md:w-fit py-1 px-2 bg-[#262626] flex h-8  rounded-[14px] mt-1">{items.RichText}</h3>
-                        <h3 className="text-[ #D4D4D4]  md:w-fit py-1 px-2 bg-[#262626] flex ml-2 h-8  rounded-[14px] mt-1">{items.LowText}</h3>
+                    <div className=" w-fit mt-2  gap-3 ml-auto mr-9 flex">
+                        <h3 className="text-[ #D4D4D4] text-[12px]    ">{items.Viewers} </h3>
+                        <h3 className="text-[ #D4D4D4]  text-[10px]  py-1 px-2 bg-[#262626]    rounded-[14px] ">{items.Text}</h3>
+                        <h3 className="text-[ #D4D4D4]   bg-[#262626] py-1 px-2 text-[10px]  rounded-[14px] ">{items.RichText}</h3>
+                        <h3 className="text-[ #D4D4D4]    bg-[#262626] text-[10px] py-1 px-2  rounded-[14px] ">{items.LowText}</h3>
                        
                     </div>
-                    <p className="mx-20 text-[#A3A3A3] mt-2 text-[11px]">{items.Description}</p>
+                   
                     
                   </div>
                 </div>
             ))} 
-        </div> 
+           
+        </div>
+        
     
+        </div>
+         
+</>
   ) 
 } 
  

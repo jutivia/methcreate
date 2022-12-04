@@ -6,6 +6,7 @@ import search from "../../images/search.png";
 import wifi from "../../images/wifi.png";
 import Image from "next/image";
 import React from "react";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 const Navbar = () => {
   // create array of objects for filter options
@@ -109,29 +110,8 @@ const Navbar = () => {
               className="w-auto mx-3"
             />
           </div>
-          <button className="bg-[#6624FF] text-[12px] text-[#fafafa] rounded-full w-auto py-1 px-2 h-[5vh]">
-            Connect Wallet
-          </button>
-          {/* <div className="relative">
-          <button className="flex flex-row items-center justify-center bg-[#171717] rounded-full w-[10vw] h-[5vh]">
-            0x3254...4567
-            <Image
-              src={arrowdown}
-              alt="arrowdown"
-              className="w-[3vw] h-[3vh]"
-            />
-          </button>
-        </div> */}
-          {/* <div className="relative">
-          <Image src={DP} alt="DP" className="w-[3vw] h-[3vh]" />
-          <div className="absolute top-[5vh] right-0 bg-[#171717] w-[10vw] h-[10vh] rounded-md">
-            <Image
-              src={arrowdown}
-              alt="arrowdown"
-              className="w-[3vw] h-[3vh]"
-            />
-          </div>
-        </div> */}
+         <ConnectButton/>
+          
         </div>
       </div>
       <div className="flex flex-row justify-center ml-4 overflow-auto items-center pl-4 p-2 mt-3 scrollbar-hide">

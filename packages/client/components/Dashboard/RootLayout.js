@@ -4,7 +4,7 @@ import React from "react";
 
 const RootLayout = ({ children }) => {
   return (
-    <div className="bg-[#060606] flex flex-row h-[100vh] overflow-hidden">
+    <div className="bg-[#060606] flex flex-row  overflow-hidden">
       <div className="w-[23%] h-[100%]">
         <Sidebar />
       </div>

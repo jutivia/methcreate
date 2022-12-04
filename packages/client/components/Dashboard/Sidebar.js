@@ -10,7 +10,7 @@ import star from "../../images/star.png";
 import avatar from "../../images/avatar.png";
 import follow from "../../images/follow-bk.png";
 import following from "../../images/follow-wt.png";
-
+import Link from "next/link";
 const Sidebar = () => {
   // array of objects for the sidebar image, name and link
   const sidebarItems = [
@@ -66,11 +66,15 @@ const Sidebar = () => {
       <div className="flex flex-col mt-6 items-center w-full">
         <div className="flex flex-row w-full mt-4  items-center justify-start cursor-pointer">
           <Image src={home} alt="home" className="w-[20px] mr-2" />
+          <Link href="/dashboard">
           <p className="text-[#525252] text-[17px] font-bold">Home</p>
+          </Link>
         </div>
         <div className="flex flex-row w-full mt-4  items-center justify-start cursor-pointer">
           <Image src={explore} alt="explore" className="w-[20px] mr-2" />
+          <Link href="/Explore">
           <p className="text-[#525252] text-[17px] font-bold">Explore</p>
+          </Link>
         </div>
         <div className="flex flex-row w-full mt-4  items-center justify-start cursor-pointer">
           <Image src={video} alt="video" className="w-[20px] mr-2" />
