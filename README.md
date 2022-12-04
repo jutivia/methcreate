@@ -41,9 +41,10 @@ yarn compile
 
 #### Update .env
 
-```
 Make an env file from [.env.example](packages/hardhat/.env.example)
-update the following variables
+and update the following variables
+
+```
 # Rpc urls
 POLYGON_MUMBAI_RPC="https://zzzzzzzzzzzzzzzzzzzz"
 POLYGON_MAINNET_RPC=https://zzzzzzzzzzzzzzzzzzzz"
