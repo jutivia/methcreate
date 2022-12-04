@@ -9,6 +9,7 @@ const Dashboard = () => {
   return (
     <RootLayout>
       <StreamCards />
+      <Card2/>
     </RootLayout>
   );
 };
