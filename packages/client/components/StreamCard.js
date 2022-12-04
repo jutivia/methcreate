@@ -18,13 +18,15 @@ const StreamCards = () => {
                   
                     <Image className="aspect-video w-96 rounded-t-2xl object-cover object-center" src={items.StreamImg} />
                  
-                    <div className="p-4 flex justify-between ">
+                    <div className="p-4 flex  justify-between ">
                       <div className="text-blue-400 text-xs  ">
                        <Image src={items.ProfileImg} alt="profile" width={66} height={85}/>
                       
                       </div>
-                      <h1 className="text-2xl font-medium text-light  font-inter">{items.Title}</h1>
-                      <div/>
+                      <div className="w-96 ml-4">
+                      <h1 className="text-2xl  text-light  font-inter">{items.Title}</h1>
+                      </div>
+                      
                       
                     </div>
                   </div>
