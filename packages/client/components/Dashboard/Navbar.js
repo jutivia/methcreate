@@ -1,11 +1,11 @@
-import React from "react";
-import Image from "next/image";
-import DP from "../../images/dp.png";
-import notification from "../../images/bell.png";
-import search from "../../images/search.png";
-import record from "../../images/record.png";
-import wifi from "../../images/wifi.png";
+import { videoRecorder } from "../../images";
 import arrowdown from "../../images/arrowdown.png";
+import notification from "../../images/bell.png";
+import DP from "../../images/dp.png";
+import search from "../../images/search.png";
+import wifi from "../../images/wifi.png";
+import Image from "next/image";
+import React from "react";
 
 const Navbar = () => {
   // create array of objects for filter options
@@ -96,7 +96,7 @@ const Navbar = () => {
         </div>
         <div className="flex flex-row items-center justify-center">
           <div>
-            <Image src={record} alt="record" className="w-auto mr-5" />
+            <Image src={videoRecorder} alt="record" className="w-auto mr-5" />
           </div>
           <button className="flex flex-row items-center justify-center bg-transparent border-[#6624FF] rounded-full w-[10vw] h-[5vh]">
             <p className="text-[#6624FF] text-[12px]">Start Stream</p>
@@ -134,7 +134,7 @@ const Navbar = () => {
         </div> */}
         </div>
       </div>
-      <div className="flex flex-row justify-center ml-4 overflow-auto items-center pl-4 p-2 mt-3">
+      <div className="flex flex-row justify-center ml-4 overflow-auto items-center pl-4 p-2 mt-3 scrollbar-hide">
         {filterOptions.map((option) => (
           <button className="bg-[#171717] rounded-full mx-2 text-[14px] text-[#fafafa] w-auto py-1 px-4">
             {option.name}
