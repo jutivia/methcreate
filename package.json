@@ -13,6 +13,6 @@
     "test": "yarn workspace @methcreate/hardhat test",
     "coverage": "yarn workspace @methcreate/hardhat coverage",
     "deploy": "yarn workspace @methcreate/hardhat deploy",
-    "start": "yarn workspace @methcreate/client start"
+    "dev": "yarn workspace @methcreate/client dev"
   }
 }
