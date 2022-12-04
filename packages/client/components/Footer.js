@@ -4,6 +4,7 @@ import { Logo } from "../images";
 
 import { BsTwitter } from "react-icons/bs";
 import StreamCards from "./StreamCard";
+import Card2 from "./Card2";
 const Footer = () => {
   return (
     <div >
@@ -60,4 +61,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;  
+export default Footer;

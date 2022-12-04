@@ -25,7 +25,7 @@ import rightborder from "./rightborder.png";
 import subhero from "./subhero.png";
 import thumbsup from "./thumbsup.png";
 import yellowstop from "./yellowstop.png";
-
+import dot from "./dot.png"
 export {
   profilepicture,
   Logo,
@@ -54,4 +54,5 @@ export {
   Live,
   Stream,
   Profile,
+  dot,
 };
