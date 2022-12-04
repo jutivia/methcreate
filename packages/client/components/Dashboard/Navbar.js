@@ -8,8 +8,10 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { MdOutlineClose } from "react-icons/md";
 
-const Navbar = () => {
+const Navbar = ({ isOpen, setIsOpen }) => {
   // create array of objects for filter options
   const filterOptions = [
     {
@@ -88,13 +90,22 @@ const Navbar = () => {
   return (
     <div className="w-full flex flex-col">
       <div className="flex flex-row justify-between items-center p-2 mt-3">
-        <div className="flex flex-row items-center justify-center bg-[#171717] rounded-full ml-3">
-          <Image src={search} alt="search" className="w-[12px] mx-3" />
-          <input
-            type="text"
-            placeholder="Search videos, creators etc"
-            className="bg-transparent outline-none w-[18vw] h-[5vh] text-[#a3a3a3] text-sm"
-          />
+        <div className="flex items-center gap-5">
+          {!isOpen && (
+            <GiHamburgerMenu
+              className="text-white"
+              size={30}
+              onClick={() => setIsOpen(true)}
+            />
+          )}
+          <div className="flex flex-row items-center justify-center bg-[#171717] rounded-full ml-3">
+            <Image src={search} alt="search" className="w-[12px] mx-3" />
+            <input
+              type="text"
+              placeholder="Search videos, creators etc"
+              className="bg-transparent outline-none w-[18vw] h-[5vh] text-[#a3a3a3] text-sm"
+            />
+          </div>
         </div>
         <div className="flex flex-row items-center justify-center">
           <div>

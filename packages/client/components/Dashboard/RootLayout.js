@@ -1,15 +1,18 @@
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
-import React from "react";
+import React, { useState } from "react";
 
 const RootLayout = ({ children }) => {
+  const [isOpen, setIsOpen] = useState(true);
   return (
     <div className="bg-[#060606] flex flex-row  overflow-hidden h-full">
-      <div className="w-[23%] h-[100%]">
-        <Sidebar />
-      </div>
-      <div className=" w-[77%] h-full ">
-        <Navbar />
+      {isOpen && (
+        <div className="w-[23%] h-[100%]">
+          <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
+        </div>
+      )}
+      <div className={` ${isOpen ? "w-[77%]" : "w-full"} h-full `}>
+        <Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
         <div className="overflow-scroll scrollbar-hide h-[100vh]">
           {children}
         </div>
