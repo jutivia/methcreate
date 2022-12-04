@@ -15,13 +15,13 @@ const ContentCreation = () => {
         </p>
       </div>
       <div className="flex-1">
-        <iframe
+        <video
           className="w-full rounded-[5px]"
           height="413"
-          src="https://www.youtube.com/embed/QsEKICkpQBI"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          title="Embedded youtube"
+          id="video"
+          src="http://www.w3schools.com/html/mov_bbb.mp4"
+          type="video/mp4"
+          controls
         />
       </div>
     </div>
