@@ -8,9 +8,11 @@ const RootLayout = ({ children }) => {
       <div className="w-[23%] h-[100%]">
         <Sidebar />
       </div>
-      <div className=" w-[77%] ">
+      <div className=" w-[77%] h-full ">
         <Navbar />
-        <div>{children}</div>
+        <div className="overflow-scroll scrollbar-hide h-[100vh]">
+          {children}
+        </div>
       </div>
     </div>
   );
