@@ -2600,7 +2600,7 @@
   "resolved" "https://registry.npmjs.org/client-only/-/client-only-0.0.1.tgz"
   "version" "0.0.1"
 
-"client@file:/home/kokocodes/Desktop/methcreate/packages/client":
+"client@file:/home/kokocodes/Downloads/methcreate/packages/client":
   "resolved" "file:packages/client"
   "version" "0.1.0"
   dependencies:
