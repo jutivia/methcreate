@@ -42,6 +42,7 @@ function getChainConfig(chain: keyof typeof chainIds): NetworkUserConfig {
     case "bsc":
       jsonRpcUrl = "https://bsc-dataseed1.binance.org";
       break;
+<<<<<<< HEAD
     default:
       jsonRpcUrl = "https://" + chain + ".infura.io/v3/" + infuraApiKey;
   }
@@ -51,13 +52,28 @@ function getChainConfig(chain: keyof typeof chainIds): NetworkUserConfig {
       mnemonic,
       path: "m/44'/60'/0'/0",
     },
+=======
+    case "polygon-mumbai":
+      jsonRpcUrl = process.env.POLYGON_MUMBAI_RPC || "";
+      break;
+    default:
+      jsonRpcUrl = "https://" + chain + ".infura.io/v3/" + infuraApiKey;
+  }
+  const privateKey = process.env.PRIVATE_KEY || "";
+  return {
+    accounts: [privateKey],
+>>>>>>> d649ac7d4de327aa65c4758a25d681f00d8b551d
     chainId: chainIds[chain],
     url: jsonRpcUrl,
   };
 }
 
 const config: HardhatUserConfig = {
+<<<<<<< HEAD
   defaultNetwork: "hardhat",
+=======
+  defaultNetwork: "polygon-mumbai",
+>>>>>>> d649ac7d4de327aa65c4758a25d681f00d8b551d
   etherscan: {
     apiKey: {
       arbitrumOne: process.env.ARBISCAN_API_KEY || "",

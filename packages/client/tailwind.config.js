@@ -20,6 +20,10 @@ module.exports = {
         audio: ["Audiowide", "cursive"],
         pop: ["Poppins", "sans-serif"],
         nexa: ["Nexa Text-Trial", "sans-serif"],
+<<<<<<< HEAD
+=======
+        inter:['Inter', "sans-serif"],
+>>>>>>> d649ac7d4de327aa65c4758a25d681f00d8b551d
       },
       screens: {
         mobile: "360px",
