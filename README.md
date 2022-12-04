@@ -6,6 +6,10 @@
 An online video sharing, live streaming and social media platform
 </p>
 
+> live link
+ 
+ methcreate-client.vercel.app
+
 ![Metacreate (1)](https://user-images.githubusercontent.com/76119744/205514424-31bc505b-d944-4800-943c-9fa4a5141763.png)
 
 ## Technologies
