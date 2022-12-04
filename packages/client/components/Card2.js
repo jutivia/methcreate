@@ -1,19 +1,16 @@
 import Image from "next/image";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import {cardData} from "./data/CardData" 
+import {cardData2} from "./data/CardData" 
  
-const StreamCards = () => { 
+const Card2 = () => { 
   return ( 
     
-        <div className='flex mx-2 w-[80%] justify-between '> 
+        <div className='flex mx-2 w-[100%] justify-between '> 
              
-            {cardData?.map((items) => ( 
+            {cardData2?.map((items) => ( 
               
                 <div key={items} className="relative flex min-h-screen flex-col justify-center">
-             <div className="flex gap-2 items-center  absolute  z-10 py-[5px] px-3 rounded-2xl overflow-hidden md:top-[320px] right-2">
-                <Image src={items.StatusImg} alt="status" width={63} height={25} />
-                  <div className="bg-[#000000] opacity-40 -z-10 absolute inset-0"></div>
-                </div>
+             
                   <div className="mx-auto flex w-96 flex-col justify-center ">
                   
                     <Image className="aspect-video w-96 rounded-t-2xl object-cover object-center" src={items.StreamImg} />
@@ -34,9 +31,8 @@ const StreamCards = () => {
                     </div>
                     <div className=" w-[100%] flex">
                         <h3 className="text-[ #D4D4D4] mx-20  mt-2">{items.Viewers} </h3>
-                        <h3 className="text-[ #D4D4D4] mx-[-70px] md:w-fit py-1 px-2 bg-[#262626] flex h-8  rounded-[14px] mt-1">{items.Text}</h3>
-                        <h3 className="text-[ #D4D4D4] ml-20 md:w-fit py-1 px-2 bg-[#262626] flex h-8  rounded-[14px] mt-1">{items.RichText}</h3>
-                        <h3 className="text-[ #D4D4D4]  md:w-fit py-1 px-2 bg-[#262626] flex ml-2 h-8  rounded-[14px] mt-1">{items.LowText}</h3>
+                        <h3 className="text-[ #D4D4D4] mx-[-70px] md:w-fit  flex  py-1 mt-1">{items.Text}</h3>
+ 
                        
                     </div>
                     <p className="mx-20 text-[#A3A3A3] text-[11px]">{items.Description}</p>
@@ -49,4 +45,4 @@ const StreamCards = () => {
   ) 
 } 
  
-export default StreamCards
+export default Card2

@@ -4,6 +4,7 @@ import { Logo } from "../images";
 
 import { BsTwitter } from "react-icons/bs";
 import StreamCards from "./StreamCard";
+import Card2 from "./Card2";
 const Footer = () => {
   return (
     <div >
@@ -55,9 +56,9 @@ const Footer = () => {
         </div>
         <p className="text-[#FFF] opacity-50 mt-10">Metacreate is a team project as part of efforts to participate and win the Polygon Hackathon.</p>
       </div>
-      <StreamCards/>
+      
     </div>
   );
 };
 
-export default Footer;  
+export default Footer;
