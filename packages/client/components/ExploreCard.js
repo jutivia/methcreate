@@ -1,6 +1,8 @@
-import Image from "next/image";
-import { BsThreeDotsVertical } from "react-icons/bs";
 import { exploreData } from "./data/CardData";
+import Image from "next/image";
+import Link from "next/link";
+import { BsThreeDotsVertical } from "react-icons/bs";
+
 const ExploreCard = () => {
   return (
     <div>
@@ -19,10 +21,12 @@ const ExploreCard = () => {
                 height={35}
                 className="absolute bottom-[5%] left-[240px]"
               />
-              <Image
-                className="aspect-video w-[328px] rounded-[8px] object-cover object-center"
-                src={items.StreamImg}
-              />
+              <Link href={`play/${items.id}`}>
+                <Image
+                  className="aspect-video w-[328px] rounded-[8px] object-cover object-center"
+                  src={items.StreamImg}
+                />
+              </Link>
               <div>
                 <h1 className="text-[16px] font-[500] text-light  font-inter">
                   {items.Title}
@@ -49,7 +53,9 @@ const ExploreCard = () => {
                   </h3>
                 </div>
                 <div>
-                    <p className="font-[11px] text-[#A3A3A3] mt-8">{items.Description}</p>
+                  <p className="font-[11px] text-[#A3A3A3] mt-8">
+                    {items.Description}
+                  </p>
                 </div>
               </div>
             </div>
