@@ -79,15 +79,5 @@ export const cardData2 = [
         Description:"Lorem ipsum dolor sit amet consectetur. Aliquet faucibus arcu eget erat at. Magna viverra amet non imperdiet risus facilisis nulla id gravida.Lorem ipsum dolor sit amet consectetur. Aliquet faucibus arcu eget erat at. Magna viver",
        
       },
-      {
-        StreamImg: Stream,
-        ProfileImg: Profile,
-        Viewers: "238K watching",
-        id: 1,
-        Name: "Jennie Lee",
-        Title: "Operation Tonga | Realistic Ultra Graphics..",
-        Text: "2 months ago",
-        Description:"Lorem ipsum dolor sit amet consectetur. Aliquet faucibus arcu eget erat at. Magna viverra amet non imperdiet risus facilisis nulla id gravida.Lorem ipsum dolor sit amet consectetur. Aliquet faucibus arcu eget erat at. Magna viver",
-       
-      },
+
 ]

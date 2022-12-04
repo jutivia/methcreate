@@ -5,12 +5,12 @@ import {cardData} from "./data/CardData"
 const StreamCards = () => { 
   return ( 
     
-        <div className='flex mx-2 w-[80%] justify-between '> 
-             
+        <div className='flex mx-[-8px] w-[100%] justify-between '> 
+            
             {cardData?.map((items) => ( 
               
                 <div key={items} className="relative flex min-h-screen flex-col justify-center">
-             <div className="flex gap-2 items-center  absolute  z-10 py-[5px] px-3 rounded-2xl overflow-hidden md:top-[320px] right-2">
+             <div className="flex gap-2 items-center  absolute  z-10 py-[5px] px-3 rounded-2xl overflow-hidden md:top-[300px] right-2">
                 <Image src={items.StatusImg} alt="status" width={63} height={25} />
                   <div className="bg-[#000000] opacity-40 -z-10 absolute inset-0"></div>
                 </div>
@@ -39,7 +39,7 @@ const StreamCards = () => {
                         <h3 className="text-[ #D4D4D4]  md:w-fit py-1 px-2 bg-[#262626] flex ml-2 h-8  rounded-[14px] mt-1">{items.LowText}</h3>
                        
                     </div>
-                    <p className="mx-20 text-[#A3A3A3] text-[11px]">{items.Description}</p>
+                    <p className="mx-20 text-[#A3A3A3] mt-2 text-[11px]">{items.Description}</p>
                     
                   </div>
                 </div>
