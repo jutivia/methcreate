@@ -2,6 +2,7 @@ import Image from "next/image";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import {cardData2} from "./data/CardData" 
  import {RiArrowDropDownLine} from "react-icons/ri"
+import Link from "next/link";
 const Card2 = () => { 
   return ( 
     <>
@@ -24,8 +25,9 @@ const Card2 = () => {
           
         <div key={items} className="relative pb-6    flex w-[354px]  flex-col justify-center">
             <div className="relative">
-                 
+            <Link href={`play/${items.id}`}>
                 <Image className="aspect-video w-96 rounded-t-2xl object-cover object-center" src={items.StreamImg} />
+            </Link>
             </div>
          
               <div className="mx-auto  flex w-full flex-col justify-center ">

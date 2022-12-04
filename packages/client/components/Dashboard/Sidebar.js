@@ -1,16 +1,17 @@
-import React from "react";
-import Image from "next/image";
 import logo from "../../images/Logo.png";
-import ham from "../../images/icon-hamburger.svg";
-import home from "../../images/home.png";
-import chat from "../../images/chat.png";
-import video from "../../images/videos.png";
-import explore from "../../images/explore.png";
-import star from "../../images/star.png";
 import avatar from "../../images/avatar.png";
+import chat from "../../images/chat.png";
+import explore from "../../images/explore.png";
 import follow from "../../images/follow-bk.png";
 import following from "../../images/follow-wt.png";
+import home from "../../images/home.png";
+import ham from "../../images/icon-hamburger.svg";
+import star from "../../images/star.png";
+import video from "../../images/videos.png";
+import Image from "next/image";
 import Link from "next/link";
+import React from "react";
+
 const Sidebar = () => {
   // array of objects for the sidebar image, name and link
   const sidebarItems = [
@@ -67,18 +68,20 @@ const Sidebar = () => {
         <div className="flex flex-row w-full mt-4  items-center justify-start cursor-pointer">
           <Image src={home} alt="home" className="w-[20px] mr-2" />
           <Link href="/dashboard">
-          <p className="text-[#525252] text-[17px] font-bold">Home</p>
+            <p className="text-[#525252] text-[17px] font-bold">Home</p>
           </Link>
         </div>
         <div className="flex flex-row w-full mt-4  items-center justify-start cursor-pointer">
           <Image src={explore} alt="explore" className="w-[20px] mr-2" />
-          <Link href="/Explore">
-          <p className="text-[#525252] text-[17px] font-bold">Explore</p>
+          <Link href="/explore">
+            <p className="text-[#525252] text-[17px] font-bold">Explore</p>
           </Link>
         </div>
         <div className="flex flex-row w-full mt-4  items-center justify-start cursor-pointer">
           <Image src={video} alt="video" className="w-[20px] mr-2" />
-          <p className="text-[#525252] text-[17px] font-bold">History</p>
+          <Link href="/upload">
+            <p className="text-[#525252] text-[17px] font-bold">Upload</p>
+          </Link>
         </div>
         <div className="flex flex-row w-full mt-4  items-center justify-start cursor-pointer">
           <Image src={chat} alt="chat" className="w-[20px] mr-2" />

@@ -4,9 +4,10 @@ import notification from "../../images/bell.png";
 import DP from "../../images/dp.png";
 import search from "../../images/search.png";
 import wifi from "../../images/wifi.png";
-import Image from "next/image";
-import React from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
 const Navbar = () => {
   // create array of objects for filter options
@@ -97,12 +98,16 @@ const Navbar = () => {
         </div>
         <div className="flex flex-row items-center justify-center">
           <div>
-            <Image src={videoRecorder} alt="record" className="w-auto mr-5" />
+            <Link href="/upload">
+              <Image src={videoRecorder} alt="record" className="w-auto mr-5" />
+            </Link>
           </div>
-          <button className="flex flex-row items-center justify-center bg-transparent border-[#6624FF] rounded-full w-[10vw] h-[5vh]">
-            <p className="text-[#6624FF] text-[12px]">Start Stream</p>
-            <Image src={wifi} alt="wifi" className="w-auto" />
-          </button>
+          <Link href="/upload">
+            <button className="flex flex-row items-center justify-center bg-transparent border-[#6624FF] rounded-full w-[10vw] h-[5vh]">
+              <p className="text-[#6624FF] text-[12px]">Start Stream</p>
+              <Image src={wifi} alt="wifi" className="w-auto" />
+            </button>
+          </Link>
           <div>
             <Image
               src={notification}
@@ -110,8 +115,7 @@ const Navbar = () => {
               className="w-auto mx-3"
             />
           </div>
-         <ConnectButton/>
-          
+          <ConnectButton />
         </div>
       </div>
       <div className="flex flex-row justify-center ml-4 overflow-auto items-center pl-4 p-2 mt-3 scrollbar-hide">
