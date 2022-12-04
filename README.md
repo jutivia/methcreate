@@ -1,3 +1,5 @@
+![MIT LICENSE](https://badgen.net//badge/license/MIT/green) ![TEST BADGE](https://img.shields.io/badge/Test%3F-yes-green.svg) ![COVERAGE BADGE](https://img.shields.io/badge/Coverage%3F-yes-green.svg)
+
 # MetaCreate
 
 <p align="justify">
@@ -17,29 +19,30 @@ An online video sharing, live streaming and social media platform
 > | **`Next JS`**       | Frontend                                             |
 > | **` TailwiNd`**     | CSS framework for faster and easier web development. |
 
-#
+## Run the DApp Locally
 
-### Run the DApp Locally
-
-#### clone repository
+### clone repository
 
 ```
 git clone https://github.com/jutivia/methcreate
 ```
 
-#### Install dependencies
+### Install dependencies
 
 ```
 yarn install
 ```
 
-#### Compile smart contract
+### Compile smart contract
 
 ```
 yarn compile
 ```
 
-#### Update .env
+### Update .env
+
+Make an env file from [.env.example](packages/hardhat/.env.example)
+and update the following variables
 
 Make an env file from [.env.example](packages/hardhat/.env.example)
 and update the following variables
@@ -57,30 +60,42 @@ POLYGONSCAN_API_KEY="zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
 DEFAULT_NETWORK="polygon-mumbai"
 ```
 
-#### Test smart contract
+### Test smart contract
 
 ```
 yarn fork <RPC_URL>
 yarn test
 ```
 
-#### Test coverage
+### Test coverage
 
 ```
 yarn fork <RPC_URL>
 yarn coverage
 ```
 
-#### Deploy and verify smart contract
+### Deploy and verify smart contract
 
 ```
 yarn deploy
 ```
 
-#### Start DApp
+### Start DApp
 
 ```
 yarn dev
 ```
 
-> ###### README Created by `Enebeli Emmanuel` for methcreate
+## How to Contribute
+
+- [Coding Guidelines](CONTRIBUTIONS/CODING_GUIDELINES.md)
+- [Commits](CONTRIBUTIONS/COMMITS.md)
+- [Prs](CONTRIBUTIONS/PRs.md)
+- [Structure](CONTRIBUTIONS/STRUCTURE.md)
+
+## Credits
+
+- [David Enebeli](https://github.com/havidtech)
+- [Emmanuel Enebeli ](https://github.com/EnebeliEmmanuel)
+- [KCPele](https://github.com/KcPele)
+- [Jutiva](https://github.com/jutivia)
