@@ -78,7 +78,7 @@
     "commit": "git-cz",
     "compile": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat compile",
     "coverage": "hardhat coverage --solcoverjs ./.solcover.js --temp artifacts --testfiles \"test/**/*.ts\" && yarn typechain",
-    "fork": "hardhat node --network hardhat --fork https://polygon-mumbai.g.alchemy.com/v2/YOUR_KEY_HERE",
+    "fork": "hardhat node --network hardhat --fork",
     "deploy": "hardhat deploy:MethCreate",
     "lint": "yarn lint:sol && yarn lint:ts && yarn prettier:check",
     "lint:sol": "solhint --max-warnings 0 \"contracts/**/*.sol\"",
