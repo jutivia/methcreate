@@ -1,33 +1,13 @@
-# Polygon Hackfest submission
-
-> ## Overview
+# MetaCreate
 
 <p align="justify">
 An online video sharing, live streaming and social media platform
 </p>
 
-#
+![Metacreate (1)](https://user-images.githubusercontent.com/76119744/205514424-31bc505b-d944-4800-943c-9fa4a5141763.png)
 
-### Constraints
+## Technologies
 
-- we could not make use of the zkevm with chainlink because chainlink has not extended their coverage there yet
-
-> ## Project Features
-
-- Like
-- Share
-- Subscribe
-- Follow
-- Vote for content
-- Buying content
-- Selling content
-- Streaming content
-- Live message
-- Profile
-- Private content can only be viewed by those that have bought or that have being given permission by the owner
-
-> ## Technologies
->
 > | <b><u>Stack</u></b> | <b><u>Usage</u></b>                                  |
 > | :------------------ | :--------------------------------------------------- |
 > | **`Solidity`**      | Smart contract                                       |
@@ -41,7 +21,7 @@ An online video sharing, live streaming and social media platform
 
 ### Run the DApp Locally
 
-### Open new terminal window and clone this repository
+#### clone repository
 
 ```
 git clone https://github.com/jutivia/methcreate
@@ -57,6 +37,23 @@ yarn install
 
 ```
 yarn compile
+```
+
+#### Update .env
+
+```
+Make an env file from [.env.example](packages/hardhat/.env.example)
+update the following variables
+# Rpc urls
+POLYGON_MUMBAI_RPC="https://zzzzzzzzzzzzzzzzzzzz"
+POLYGON_MAINNET_RPC=https://zzzzzzzzzzzzzzzzzzzz"
+PRIVATE_KEY="zzzzzzzzzzzzzzzzzzz"
+
+# Block explorer API keys
+POLYGONSCAN_API_KEY="zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
+
+# Network - polygon-mumbai or polygon-mainnnet
+DEFAULT_NETWORK="polygon-mumbai"
 ```
 
 #### Test smart contract
