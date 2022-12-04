@@ -22,12 +22,12 @@ const ExploreCard = () => {
                 className="absolute bottom-[5%] left-[240px]"
               />
               <Link href={`play/${items.id}`}>
-                <Image
-                  className="aspect-video w-[328px] rounded-[8px] object-cover object-center"
-                  src={items.StreamImg}
-                />
+              <Image
+                className="aspect-video w-[428px] rounded-[8px] object-cover object-center"
+                src={items.StreamImg}
+              />
               </Link>
-              <div>
+              <div className="mt-4">
 
                 <h1 className="text-[16px] font-[500] text-light  font-inter">
                   {items.Title}
