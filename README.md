@@ -80,7 +80,7 @@ yarn deploy
 #### Start DApp
 
 ```
-yarn start
+yarn dev
 ```
 
 > ###### README Created by `Enebeli Emmanuel` for methcreate
