@@ -58,10 +58,12 @@ const config: HardhatUserConfig = {
   },
   networks: {
     hardhat: {
-      accounts: {
-        mnemonic: "here is where your twelve words mnemonic should be put my friend",
+      forking: {
+        url:
+          defaultNetwork === "polygon-mumbai"
+            ? process.env.POLYGON_MUMBAI_RPC || ""
+            : process.env.POLYGON_MAINNET_RPC || "",
       },
-      chainId: chainIds.hardhat,
     },
     "polygon-mainnet": getChainConfig("polygon-mainnet"),
     "polygon-mumbai": getChainConfig("polygon-mumbai"),
