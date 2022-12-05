@@ -18,6 +18,7 @@ if (!defaultNetwork) {
 }
 
 const chainIds = {
+  hardhat: 31337,
   "polygon-mainnet": 137,
   "polygon-mumbai": 80001,
 };
@@ -42,7 +43,7 @@ function getChainConfig(chain: keyof typeof chainIds): NetworkUserConfig {
 }
 
 const config: HardhatUserConfig = {
-  defaultNetwork,
+  defaultNetwork: "hardhat",
   etherscan: {
     apiKey: {
       polygon: process.env.POLYGONSCAN_API_KEY || "",
