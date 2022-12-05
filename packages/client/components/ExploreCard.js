@@ -6,8 +6,8 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 const ExploreCard = () => {
   return (
     <div>
-      <p className="text-[18px] font-[600] text-[#F5F5F5] mt-6 ">Trending</p>
-      <div className="flex mt-4 gap-5 flex-col justify-between w-[97%] ">
+      <p className="text-[18px] font-[600] text-[#F5F5F5] ml-8 mt-6 ">Trending</p>
+      <div className="flex mt-4  flex-col justify-between mx-auto w-[97%] ">
         {exploreData?.map((items) => (
           <div
             key={items}

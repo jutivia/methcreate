@@ -18,8 +18,8 @@ const Card2 = () => {
     <div class="flex-grow h-px bg-gray-600"></div>
 </div>
 <div>
-    <p className="text-[18px] font-[600] text-[#F5F5F5] mt-6 ">Today</p>
-    <div className='flex mt-4 gap-5 flex-wrap justify-between w-[97%] '> 
+    <p className="text-[18px] font-[600] ml-8 text-[#F5F5F5] mt-6 ">Today</p>
+    <div className='flex mt-4 gap-5 flex-wrap justify-between w-[95%] mx-auto '> 
 
         {cardData2?.map((items) => ( 
           

@@ -7,10 +7,10 @@ const StreamCards = () => {
   return (
     <>
       <div>
-        <p className="text-[18px] font-[600] text-[#F5F5F5] mt-6 ">
+        <p className="text-[18px] font-[600] ml-8 text-[#F5F5F5] mt-6 ">
           Live streams
         </p>
-        <div className="flex mt-4 gap-5 flex-wrap justify-between w-[97%] ">
+        <div className="flex mt-4  flex-wrap justify-between w-[95%] mx-auto ">
           {cardData?.map((items) => (
             <div
               key={items}
