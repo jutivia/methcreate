@@ -10,9 +10,11 @@ import star from "../../images/star.png";
 import video from "../../images/videos.png";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { MdOutlineClose } from "react-icons/md";
 
-const Sidebar = () => {
+const Sidebar = ({ setIsOpen, isOpen }) => {
   // array of objects for the sidebar image, name and link
   const sidebarItems = [
     {
@@ -42,10 +44,7 @@ const Sidebar = () => {
   ];
 
   // toggle the sidebar
-  const toggleSidebar = () => {
-    const sidebar = document.querySelector(".sidebar");
-    sidebar.classList.toggle("hidden");
-  };
+
   // change button text to following or follow
   const changeText = (e) => {
     e.target.innerText === "Following"
@@ -56,12 +55,19 @@ const Sidebar = () => {
   return (
     <div className="sidebar p-6 flex flex-col h-[100vh] overflow-auto scrollbar-hide">
       <div className=" flex flex-row items-center justify-between">
-        <Image
-          onClick={toggleSidebar}
-          src={ham}
-          alt="ham"
-          className="w-[30px]"
-        />
+        {isOpen ? (
+          <MdOutlineClose
+            className="text-white"
+            size={30}
+            onClick={() => setIsOpen(false)}
+          />
+        ) : (
+          <GiHamburgerMenu
+            className="text-white"
+            size={30}
+            onClick={() => setIsOpen(true)}
+          />
+        )}
         <Image src={logo} alt="logo" className="w-[150px]" />
       </div>
       <div className="flex flex-col mt-6 items-center w-full">
