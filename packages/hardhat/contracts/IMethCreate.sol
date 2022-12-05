@@ -10,36 +10,50 @@ interface IMethCreate {
     error NotTokenOwner();
     error NotSellable();
     error InsufficientPayment();
+    error InvalidPaymentToken();
+    error NoPriceFeedSupportForToken();
 
-    event TokenUpdated(uint indexed tokenId, uint indexed price, bool indexed sellable);
+    event TokenUpdated(uint indexed nftTokenId, uint indexed price, bool indexed sellable);
 
     event TokenSold(
         address indexed seller,
         address indexed buyer,
-        uint indexed tokenId,
+        uint indexed nftTokenId,
         address paymentToken,
         uint time
     );
 
-    event SellerAddedPaymentTokens(address indexed seller, address[] indexed tokens);
+    event PriceFeedUpdated(address indexed token, address indexed priceFeed);
 
-    event SellerRemovedPaymentTokens(address indexed seller, address[] indexed tokens);
+    event SellerAddedPaymentTokens(address indexed seller, address indexed token);
 
-    function safeMint(address to, string memory uri, uint price, bool sellable) external;
+    event SellerRemovedPaymentTokens(address indexed seller, address indexed token);
 
-    function setPrice(uint tokenId, uint price) external;
+    function safeMint(string memory uri, uint price, bool sellable) external;
 
-    function setSellable(uint tokenId, bool sellable) external;
+    function setPrice(uint nftTokenId, uint price) external;
 
-    function buyTokenWithEth(uint tokenId, uint newPrice, bool sellable) external payable;
+    function setSellable(uint nftTokenId, bool sellable) external;
 
-    function addToMyPaymentTokens(address[] calldata tokens) external;
+    function buyNftWithEth(uint nftTokenId, uint newPrice, bool sellable) external payable;
 
-    function removeFromMyPaymentTokens(address[] calldata tokens) external;
+    function buyNftWithToken(
+        uint nftTokenId,
+        uint newPrice,
+        bool sellable,
+        uint payment,
+        address paymentToken
+    ) external payable;
+
+    function updatePriceFeed(address token, address priceFeed) external;
+
+    function addToMyPaymentTokens(address token) external;
+
+    function removeFromMyPaymentTokens(address token) external;
 
     function getSellersPaymentToken(address seller) external view returns (address[] memory tokens);
 
-    function setTokenInfo(uint tokenId, uint price, bool sellable) external;
+    function setTokenInfo(uint nftTokenId, uint price, bool sellable) external;
 
-    function tokenURI(uint256 tokenId) external view returns (string memory);
+    function tokenURI(uint256 nftTokenId) external view returns (string memory);
 }

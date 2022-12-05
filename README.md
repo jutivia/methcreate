@@ -1,83 +1,103 @@
-# Polygon Hackfest submission 
+![MIT LICENSE](https://badgen.net//badge/license/MIT/green) ![TEST BADGE](https://img.shields.io/badge/Test%3F-PASSING-green.svg) ![COVERAGE BADGE](https://img.shields.io/badge/Coverage%3F-100-green.svg)
 
-> ## Table of contents
-
-- [Overview](#overview)
-- [Project Features](#project-features)
-- [Technologies](#technologies)
-- [Repo Setup](#repo-setup)
-- [Requirements](#requirements)
-- [Setup the Project](#setup-the-project)
-  - [Install Hardhat](#install-hardhat)
-  - [Env Setup](#env-setup)
-  - [Setup Hardhat.config](#setup-hardhatconfig)
-- [Create the SmartContract](#create-the-smartcontract)
-  - [Compile](#compile)
-  - [Deploy](#deploy)
-  - [Verify](#verify)
-- [Setup the Frontend](#setup-the-frontend)
-  - [Install Dependencies](#install-dependencies)
-  - [Start Server](#start-server)
-  - [Build the Frontend](#build-the-frontend)
-- [Testing the Smartcontract](#testing-the-smartcontract)
-  - [Coverage](#coverage)
-  - [Test](#test)
-- [Verified Contract Addresses](#verified-contract-addresses)
-- [Live Link](#live-link)
-- [Contributors](#contributors)
-- [Contributing to the project](#contributing-to-the-project)
-
-#
-
-> ## Overview
+# MetaCreate
 
 <p align="justify">
 An online video sharing, live streaming and social media platform
 </p>
 
+> live link
 
-
-> ### Constraints
-
-
-
-
-
-
-
-> ## Project Features
-
-- Like
-- Share
-- Subscribe
-- Follow
-- Vote for content
-- Buying content
-- Selling content
-- Streaming content
-- Live message
-- Profile
-- Private content can only be viewed by those that have bought or that have being given permission by the owner
+ [Metacreate](methcreate-client.vercel.app)
  
 
-</p>
+![Metacreate (1)](https://user-images.githubusercontent.com/76119744/205514424-31bc505b-d944-4800-943c-9fa4a5141763.png)
 
-#
+## Technologies
 
-> ## Technologies
->
-> | <b><u>Stack</u></b> | <b><u>Usage</u></b> |
-> | :------------------ | :------------------ |
-> | **`Solidity`**      | Smart contract      |
-> | **`ipfs`**          | database            |
-> | **`chainlink`**     | price feed          |
-> | **`the graph`**     | query data          |
-> | **`Next JS`**       | Frontend            |
-> | **`Tailwind`**      |CSS framework for faster and easier web development.|
+> | <b><u>Stack</u></b> | <b><u>Usage</u></b>                                  |
+> | :------------------ | :--------------------------------------------------- |
+> | **`Solidity`**      | Smart contract                                       |
+> | **`ipfs`**          | database                                             |
+> | **`chainlink`**     | price feed                                           |
+> | **`the graph`**     | query data                                           |
+> | **`Next JS`**       | Frontend                                             |
+> | **` TailwiNd`**     | CSS framework for faster and easier web development. |
 
-#
+## Run the DApp Locally
 
-#
+### clone repository
 
+```
+git clone https://github.com/jutivia/methcreate
+```
 
-> ###### README Created by `Enebeli Emmanuel` for methcreate
+### Install dependencies
+
+```
+yarn install
+```
+
+### Compile smart contract
+
+```
+yarn compile
+```
+
+### Update .env
+
+Make an env file from [.env.example](packages/hardhat/.env.example)
+and update the following variables
+
+```
+# Rpc urls
+POLYGON_MUMBAI_RPC="https://zzzzzzzzzzzzzzzzzzzz"
+POLYGON_MAINNET_RPC=https://zzzzzzzzzzzzzzzzzzzz"
+PRIVATE_KEY="zzzzzzzzzzzzzzzzzzz"
+
+# Block explorer API keys
+POLYGONSCAN_API_KEY="zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
+
+# Network - polygon-mumbai or polygon-mainnnet
+DEFAULT_NETWORK="polygon-mumbai"
+```
+
+### Test smart contract
+
+```
+yarn fork <RPC_URL>
+yarn test
+```
+
+### Test coverage
+
+```
+yarn fork <RPC_URL>
+yarn coverage
+```
+
+### Deploy and verify smart contract
+
+```
+yarn deploy
+```
+
+### Start DApp
+
+```
+yarn dev
+```
+
+## How to Contribute
+
+- [Coding Guidelines](CONTRIBUTIONS/CODING_GUIDELINES.md)
+- [Commits](CONTRIBUTIONS/COMMITS.md)
+- [Prs](CONTRIBUTIONS/PRs.md)
+- [Structure](CONTRIBUTIONS/STRUCTURE.md)
+
+## Credits
+
+- [David Enebeli](https://github.com/havidtech)
+- [Emmanuel Enebeli ](https://github.com/EnebeliEmmanuel)
+- [KCPele](https://github.com/KcPele)
+- [Jutiva](https://github.com/jutivia)

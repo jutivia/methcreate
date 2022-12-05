@@ -6,5 +6,13 @@
     "packages": [
       "packages/*"
     ]
+  },
+  "scripts": {
+    "compile": "yarn workspace @methcreate/hardhat compile",
+    "fork": "yarn workspace @methcreate/hardhat fork",
+    "test": "yarn workspace @methcreate/hardhat test",
+    "coverage": "yarn workspace @methcreate/hardhat coverage",
+    "deploy": "yarn workspace @methcreate/hardhat deploy",
+    "dev": "yarn workspace @methcreate/client dev"
   }
 }

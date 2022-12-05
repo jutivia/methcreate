@@ -1,14 +1,13 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
-import styles from '../styles/Home.module.css'
+import { Landing } from "../components";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 
-    export default function Home() {
-      return (
-        <div className='bg-[#060606] '>
-        <Navbar/>
-        <Footer/>
-        </div>
-      )
-    }
+export default function Home() {
+  return (
+    <div className=" ">
+      <Navbar />
+      <Landing />
+      <Footer />
+    </div>
+  );
+}
