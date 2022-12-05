@@ -13,7 +13,7 @@ An online video sharing, live streaming and social media platform
 - [Smart Contract](https://mumbai.polygonscan.com/address/0x007fF1Fc2709f6eCedAB3021804f0C330c83eA72#code)
 - [Design (Prototype)](https://www.figma.com/proto/Jndsu86Dt4QeefBEdPlI5z/UI-screens?node-id=168%3A16666&scaling=scale-down-width&page-id=1%3A4&starting-point-node-id=168%3A16666)
 - [Design (Static)](https://www.figma.com/file/Jndsu86Dt4QeefBEdPlI5z/UI-screens?node-id=1%3A4&t=CQKrpaTwpeuRz6V6-3)
-- [Video Demo](https://www.loom.com/share/fd1937f323ec447cab83191466aa75d7)
+- [Video Demo](https://www.loom.com/share/ee67b7e5e8ee453e990a5a699933c3a4)
 - [Frontend](https://methcreate-client.vercel.app/)
 - [Api](https://video-api-08tf.onrender.com/)
 
