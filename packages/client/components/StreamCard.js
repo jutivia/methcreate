@@ -13,7 +13,7 @@ const StreamCards = () => {
               
             <div key={items} className="relative pb-6    flex w-[354px]  flex-col justify-center">
                 <div className="relative">
-                     <Image src={items.StatusImg} alt="status" width={63} height={25} className="absolute bottom-[3%] right-[4%]" />
+                     <Image src={items.StatusImg} alt="status" width={83} height={35} className="absolute bottom-[3%] right-[4%]" />
                     <Image className="aspect-video w-96 rounded-t-2xl object-cover object-center" src={items.StreamImg} />
                 </div>
 
