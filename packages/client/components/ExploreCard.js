@@ -26,13 +26,9 @@ const ExploreCard = () => {
                 className="aspect-video w-[428px] rounded-[8px] object-cover object-center"
                 src={items.StreamImg}
               />
-<<<<<<< HEAD
-              <div >
-=======
               </Link>
               <div className="mt-4">
 
->>>>>>> d30eba272e37c8bb29c19cb08e4e424bb42cb264
                 <h1 className="text-[16px] font-[500] text-light  font-inter">
                   {items.Title}
                 </h1>
