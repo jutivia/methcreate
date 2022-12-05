@@ -1,12 +1,10 @@
 ![MIT LICENSE](https://badgen.net//badge/license/MIT/green) ![TEST BADGE](https://img.shields.io/badge/Test%3F-PASSING-green.svg) ![COVERAGE BADGE](https://img.shields.io/badge/Coverage%3F-97.14-green.svg)
 
-# MetaCreate
+# MetaCreate ([Open](methcreate-client.vercel.app))
 
 <p align="justify">
 An online video sharing, live streaming and social media platform
 </p>
-
-[Metacreate](methcreate-client.vercel.app)
 
 ![Metacreate (1)](https://user-images.githubusercontent.com/76119744/205514424-31bc505b-d944-4800-943c-9fa4a5141763.png)
 
