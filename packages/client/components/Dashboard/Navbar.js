@@ -4,11 +4,14 @@ import notification from "../../images/bell.png";
 import DP from "../../images/dp.png";
 import search from "../../images/search.png";
 import wifi from "../../images/wifi.png";
-import Image from "next/image";
-import React from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { MdOutlineClose } from "react-icons/md";
 
-const Navbar = () => {
+const Navbar = ({ isOpen, setIsOpen }) => {
   // create array of objects for filter options
   const filterOptions = [
     {
@@ -87,22 +90,35 @@ const Navbar = () => {
   return (
     <div className="w-full flex flex-col">
       <div className="flex flex-row justify-between items-center p-2 mt-3">
-        <div className="flex flex-row items-center justify-center bg-[#171717] rounded-full ml-3">
-          <Image src={search} alt="search" className="w-[12px] mx-3" />
-          <input
-            type="text"
-            placeholder="Search videos, creators etc"
-            className="bg-transparent outline-none w-[18vw] h-[5vh] text-[#a3a3a3] text-sm"
-          />
+        <div className="flex items-center gap-5">
+          {!isOpen && (
+            <GiHamburgerMenu
+              className="text-white"
+              size={30}
+              onClick={() => setIsOpen(true)}
+            />
+          )}
+          <div className="flex flex-row items-center justify-center bg-[#171717] rounded-full ml-3">
+            <Image src={search} alt="search" className="w-[12px] mx-3" />
+            <input
+              type="text"
+              placeholder="Search videos, creators etc"
+              className="bg-transparent outline-none w-[18vw] h-[5vh] text-[#a3a3a3] text-sm"
+            />
+          </div>
         </div>
         <div className="flex flex-row items-center justify-center">
           <div>
-            <Image src={videoRecorder} alt="record" className="w-auto mr-5" />
+            <Link href="/upload">
+              <Image src={videoRecorder} alt="record" className="w-auto mr-5" />
+            </Link>
           </div>
-          <button className="flex flex-row items-center justify-center bg-transparent border-[#6624FF] rounded-full w-[10vw] h-[5vh]">
-            <p className="text-[#6624FF] text-[12px]">Start Stream</p>
-            <Image src={wifi} alt="wifi" className="w-auto" />
-          </button>
+          <Link href="/upload">
+            <button className="flex flex-row items-center justify-center bg-transparent border-[#6624FF] rounded-full w-[10vw] h-[5vh]">
+              <p className="text-[#6624FF] text-[12px]">Start Stream</p>
+              <Image src={wifi} alt="wifi" className="w-auto" />
+            </button>
+          </Link>
           <div>
             <Image
               src={notification}
@@ -110,8 +126,7 @@ const Navbar = () => {
               className="w-auto mx-3"
             />
           </div>
-         <ConnectButton/>
-          
+          <ConnectButton />
         </div>
       </div>
       <div className="flex flex-row justify-center ml-4 overflow-auto items-center pl-4 p-2 mt-3 scrollbar-hide">

@@ -1,11 +1,13 @@
-import Image from "next/image";
-import { BsThreeDotsVertical } from "react-icons/bs";
 import { exploreData } from "./data/CardData";
+import Image from "next/image";
+import Link from "next/link";
+import { BsThreeDotsVertical } from "react-icons/bs";
+
 const ExploreCard = () => {
   return (
     <div>
-      <p className="text-[18px] font-[600] text-[#F5F5F5] mt-6 ">Trending</p>
-      <div className="flex mt-4 gap-5 flex-col justify-between w-[97%] ">
+      <p className="text-[18px] font-[600] text-[#F5F5F5] ml-8 mt-6 ">Trending</p>
+      <div className="flex mt-4  flex-col justify-between mx-auto w-[97%] ">
         {exploreData?.map((items) => (
           <div
             key={items}
@@ -19,11 +21,18 @@ const ExploreCard = () => {
                 height={35}
                 className="absolute bottom-[5%] left-[240px]"
               />
+              <Link href={`play/${items.id}`}>
               <Image
-                className="aspect-video w-[328px] rounded-[8px] object-cover object-center"
+                className="aspect-video w-[428px] rounded-[8px] object-cover object-center"
                 src={items.StreamImg}
               />
+<<<<<<< HEAD
               <div >
+=======
+              </Link>
+              <div className="mt-4">
+
+>>>>>>> d30eba272e37c8bb29c19cb08e4e424bb42cb264
                 <h1 className="text-[16px] font-[500] text-light  font-inter">
                   {items.Title}
                 </h1>
@@ -49,7 +58,9 @@ const ExploreCard = () => {
                   </h3>
                 </div>
                 <div>
-                    <p className="font-[11px] text-[#A3A3A3] mt-8">{items.Description}</p>
+                  <p className="font-[11px] text-[#A3A3A3] mt-8">
+                    {items.Description}
+                  </p>
                 </div>
               </div>
             </div>

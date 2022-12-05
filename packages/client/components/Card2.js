@@ -2,6 +2,7 @@ import Image from "next/image";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import {cardData2} from "./data/CardData" 
  import {RiArrowDropDownLine} from "react-icons/ri"
+import Link from "next/link";
 const Card2 = () => { 
   return ( 
     <>
@@ -17,15 +18,16 @@ const Card2 = () => {
     <div class="flex-grow h-px bg-gray-600"></div>
 </div>
 <div>
-    <p className="text-[18px] font-[600] text-[#F5F5F5] mt-6 ">Today</p>
-    <div className='flex mt-4 gap-5 flex-wrap justify-between w-[97%] '> 
+    <p className="text-[18px] font-[600] ml-8 text-[#F5F5F5] mt-6 ">Today</p>
+    <div className='flex mt-4 gap-5 flex-wrap justify-between w-[95%] mx-auto '> 
 
         {cardData2?.map((items) => ( 
           
         <div key={items} className="relative pb-6    flex w-[354px]  flex-col justify-center">
             <div className="relative">
-                 
+            <Link href={`play/${items.id}`}>
                 <Image className="aspect-video w-96 rounded-t-2xl object-cover object-center" src={items.StreamImg} />
+            </Link>
             </div>
          
               <div className="mx-auto  flex w-full flex-col justify-center ">

@@ -1,7 +1,3 @@
 module.exports = {
-  istanbulReporter: ["html", "lcov"],
-  providerOptions: {
-    mnemonic: process.env.MNEMONIC,
-  },
-  skipFiles: ["test"],
+  skipFiles: ['MockPriceFeed.sol',, 'IMethCreate.sol', './node_modules']
 };
