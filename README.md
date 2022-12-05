@@ -1,6 +1,6 @@
 ![MIT LICENSE](https://badgen.net//badge/license/MIT/green) ![TEST BADGE](https://img.shields.io/badge/Test%3F-PASSING-green.svg) ![COVERAGE BADGE](https://img.shields.io/badge/Coverage%3F-97.14-green.svg)
 
-# MetaCreate ([Open](methcreate-client.vercel.app))
+# MetaCreate ([Open](https://methcreate-client.vercel.app/))
 
 <p align="justify">
 An online video sharing, live streaming and social media platform
