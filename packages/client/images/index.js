@@ -35,6 +35,11 @@ import img6 from "./img6.png"
 import img7 from "./img7.png"
 import img8 from "./img8.png"
 import img9 from "./img9.png"
+import img10 from "./img10.jpeg"
+import img11 from "./img11.jpeg"
+import img12 from "./img12.jpeg"
+import img13 from "./img13.jpeg"
+import img14 from "./img14.jpeg"
 export {
   profilepicture,
   Logo,
@@ -72,5 +77,10 @@ export {
   img6,
   img7,
   img8,
-  img9
+  img9,
+  img10,
+  img11,
+  img12,
+  img13,
+  img14,
 };

@@ -1,4 +1,4 @@
-import { dot, img1, img2, img3, img4, img5, img6, img7, img8, img9, Live, Profile, Stream } from "../../images";
+import { dot, img1, img10, img11, img12, img13, img14, img2, img3, img4, img5, img6, img7, img8, img9, Live, Profile, Stream } from "../../images";
 
 export const cardData = [
     {
@@ -50,7 +50,7 @@ export const cardData = [
 
 export const cardData2 = [
     {
-      StreamImg: Stream,
+      StreamImg: img10,
       ProfileImg: Profile,
       VideoUrl:"https://www.youtube.com/watch?v=r2JNFPx8E4s",
       Viewers: "128K watching",
@@ -74,7 +74,7 @@ export const cardData2 = [
        
       },
       {
-        StreamImg: Stream,
+        StreamImg: img11,
         ProfileImg: Profile,
         VideoUrl:"https://www.youtube.com/watch?v=8AdVZDYR2_k",
         Viewers: "49K watching",
@@ -98,7 +98,7 @@ export const cardData2 = [
        
       },
       {
-          StreamImg: Stream,
+          StreamImg: img12,
           ProfileImg: Profile,
           VideoUrl:"https://www.youtube.com/watch?v=0zumGz8l4nk",
           Viewers: "68K watching",
@@ -127,7 +127,7 @@ export const cardData2 = [
 export const exploreData = [
     
     {
-        StreamImg: Stream,
+        StreamImg: img13,
         ProfileImg: Profile,
         VideoUrl:"https://www.youtube.com/watch?v=0eove1Jot-o",
         Viewers: "68K watching",
@@ -193,7 +193,7 @@ export const exploreData = [
        Description:"Lorem ipsum dolor sit amet consectetur. Aliquet faucibus arcu eget erat at. Magna viverra amet non imperdiet risus facilisis nulla id gravida.Lorem ipsum dolor sit amet consectetur. Aliquet faucibus arcu eget erat at. Magna viver",
       },
       {
-        StreamImg: Stream,
+        StreamImg: img14,
         ProfileImg: Profile,
         Viewers: "138K watching",
         VideoUrl:"https://www.youtube.com/watch?v=YgsfrC6JeII",
